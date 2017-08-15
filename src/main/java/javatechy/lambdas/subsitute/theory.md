@@ -22,7 +22,7 @@ interface Notifier {
 
 There are 3 ways of providing the implementation:
 Prior to Java 8:
-1. By creating a new class which implements Notifier interface
+* **variable** -- By creating a new class which implements Notifier interface
 ```java
 class EmailNotifier implements Notifier{
 	@Override
@@ -38,7 +38,7 @@ Notifier emailNotifier = new EmailNotifier();
 emailNotifier.notifyMe();
 ```
 	
-2. By creating an anonymous class
+* **By creating an anonymous class** -- :
 
 ```java
 Notifier emailNotifierAc = new Notifier() {
@@ -48,10 +48,10 @@ Notifier emailNotifierAc = new Notifier() {
 	}
 };
 ```
-		
-```java
-3. By using lambdas
 
+* **By using lambdas** -- 	
+
+```java
 Notifier emailNotifierFi = ()-> System.out.println("I m lambda and notifying you");
 emailNotifierFi.notifyMe();
 ```
