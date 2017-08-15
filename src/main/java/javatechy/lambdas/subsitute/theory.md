@@ -55,3 +55,9 @@ Notifier emailNotifierAc = new Notifier() {
 Notifier emailNotifierFi = ()-> System.out.println("I m lambda and notifying you");
 emailNotifierFi.notifyMe();
 ```
+
+lets see how many class files are generatered after compilation if all the 3 cases are merged into one class (assuming the class name is DifferenceFinder.java):
+
+<p align="center">
+  <img src="https://github.com/javatechy/java8/blob/master/src/main/java/javatechy/lambdas/subsitute/output.PNG" alt="output" height="320"/>
+</p>
