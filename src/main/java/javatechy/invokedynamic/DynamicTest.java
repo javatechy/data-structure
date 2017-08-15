@@ -1,41 +1,62 @@
 package javatechy.invokedynamic;
 
+import java.lang.invoke.CallSite;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
-import java.lang.reflect.Method;
+import java.lang.invoke.MutableCallSite;
+import java.util.stream.IntStream;
+
+import com.sun.xml.internal.ws.client.sei.MethodHandler;
+
+import jdk.nashorn.internal.lookup.MethodHandleFactory.LookupException;
 
 public class DynamicTest {
 
-	public double instMethod(double value) {
-		System.out.println("inst method called" + value);
-		return value * 2;
+	private static MethodHandle tickHandle;
+	private static MethodHandle tockHandle;
+
+	public static void tick() {
+		System.out.println("tick called");
 	}
 
-	public static void staticMethod(double value) {
-		System.out.println("static Method called " + value);
+	public static void tock() {
+		System.out.println("tock called");
 	}
 
 	public static void main(String[] args) throws Throwable {
-		DynamicTest test = new DynamicTest();
-		test.instMethod(2.0);
-		test.staticMethod(4);
-		MethodHandles.Lookup lookup = MethodHandles.lookup();
-		MethodHandle staticMethodHandle = lookup.findStatic(DynamicTest.class, "staticMethod", MethodType.methodType(void.class, double.class));
-		staticMethodHandle.invoke(2.2);	
-		// for further optimization - throws error if exact arguments not found
-		// staticMethodHandle.invokeExact(2);	
-		MethodHandle virtualMethodHandle = lookup.findVirtual(DynamicTest.class, "instMethod", MethodType.methodType(double.class, double.class));
-		//virtualMethodHandle.invoke(test,2);
-		virtualMethodHandle.bindTo(test).invoke(2);
-		
-		// using reflections & invoke dynamic both
-		Method instMethod =  DynamicTest.class.getMethod("instMethod", double.class);
-		MethodHandle unreflect = lookup.unreflect(instMethod);
-		unreflect.bindTo(test).invoke(5);
-		
-		
+		CallSite callSite = callMeMethod();
+		// DynamicTest test = new DynamicTest();
+		//MethodHandle handler = callSite.getTarget();
+		MethodHandle handler = callSite.dynamicInvoker();
+		for (int i = 0; i < 10; i++) {
+			handler.invoke();
+			Thread.sleep(1000);
+			changeHandle(callSite, i);
+		}
+		// IntStream.range(0, 11).forEach(i->handler.invoke());
+	}
 
+	private static void changeHandle(CallSite callSite, int index) throws NoSuchMethodException, IllegalAccessException {
+		if (callSite.getTarget().equals(tickHandle)) {
+			callSite.setTarget(tockHandle);
+		} else {
+			callSite.setTarget(tickHandle);
+		}
+		if(index==8){
+			Runnable runnable =  ()-> System.out.println("Runnable thread handler");
+			MethodHandles.Lookup  lookup =  MethodHandles.lookup();
+			MethodHandle handler = lookup.findVirtual(runnable.getClass(), "run", MethodType.methodType(void.class));
+			handler.bindTo(runnable);
+			
+		}
+	}
+
+	private static CallSite callMeMethod() throws NoSuchMethodException, IllegalAccessException {
+		MethodHandles.Lookup lookup = MethodHandles.lookup();
+		tickHandle = lookup.findStatic(DynamicTest.class, "tick", MethodType.methodType(void.class));
+		tockHandle = lookup.findStatic(DynamicTest.class, "tock", MethodType.methodType(void.class));
+		return new MutableCallSite(tickHandle);
 	}
 
 }
