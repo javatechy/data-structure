@@ -3,6 +3,7 @@ package javatechy.invokedynamic;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
+import java.lang.reflect.Method;
 
 public class InvokeDynamicTest {
 
@@ -28,7 +29,12 @@ public class InvokeDynamicTest {
 		//virtualMethodHandle.invoke(test,2);
 		virtualMethodHandle.bindTo(test).invoke(2);
 		
-		// using reflections 
+		// using reflections & invoke dynamic both
+		Method instMethod =  InvokeDynamicTest.class.getMethod("instMethod", double.class);
+		MethodHandle unreflect = lookup.unreflect(instMethod);
+		unreflect.bindTo(test).invoke(5);
+		
+		
 
 	}
 
