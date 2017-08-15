@@ -64,10 +64,12 @@ lets see how many class files are generated after compilation if all the 3 cases
 Only one class DifferenceFinder$1.class is generated for case 2 but no inner class is generated for lambda expression because lambdas are implemented differenly in Java 8
 than anaonymouse class. Lambda implementation is based on InvokeDynamic instruction, introduced in Java 7.
 
-* What's InvokeDynamic?
+* What's **InvokeDynamic**?
 It's a big topic but so short answer is: to generate code at runtime. The Java developers chose to
  generate the implementation class at runtime. This is done by calling java.lang.invoke.LambdaMetafactory.metafactory
 
 I won't go  in details lets focus on lambdas only.
 
 
+Muliple Arguements in Lambdas
+-----------------------------
