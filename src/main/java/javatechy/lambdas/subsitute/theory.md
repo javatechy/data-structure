@@ -74,10 +74,10 @@ It's a big topic but the short answer is: to generate code in runtime. The Java 
 
 A lambda works like this:
 
-Generates invokedynamic call site and uses a lambdafactory to return the functional implementation.
-Lambda converted to a method to be invoked by invokedynamic.
-The method is stored in a class as a private static method.
-There are two lambda types. Non-capturing lambdas only use fields inside their bodies, whereas capturing lambdas access fields outside their bodies.
+* Generates invokedynamic call site and uses a lambdafactory to return the functional implementation.
+* Lambda converted to a method to be invoked by invokedynamic.
+* The method is stored in a class as a private static method.
+* There are two lambda types. Non-capturing lambdas only use fields inside their bodies, whereas capturing lambdas access fields outside their bodies.
 
 
 Reference: https://stackoverflow.com/questions/30002380/why-are-java-8-lambdas-invoked-using-invokedynamic
