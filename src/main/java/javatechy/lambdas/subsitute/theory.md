@@ -49,7 +49,7 @@ Notifier emailNotifierAc = new Notifier() {
 };
 ```
 
-* **By using lambdas** -- 	
+* **By using lambdas** In this case, there is no need to define the type  or declare a new class here . You can directly pass the function	
 
 ```java
 Notifier emailNotifierFi = ()-> System.out.println("I m lambda and notifying you");
@@ -61,3 +61,6 @@ lets see how many class files are generatered after compilation if all the 3 cas
 <p align="center">
   <img src="https://github.com/javatechy/java8/blob/master/src/main/java/javatechy/lambdas/subsitute/output.PNG" alt="output" height="320"/>
 </p>
+
+Only one class DifferenceFinder$1.class is generated for case 2 but we were expecting 2 inner class generation here -one for anonymouse inner class
+and another class for 
