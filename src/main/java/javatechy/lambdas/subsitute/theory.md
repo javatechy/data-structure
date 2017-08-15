@@ -22,7 +22,7 @@ interface Notifier {
 
 There are 3 ways of providing the implementation:
 Prior to Java 8:
-* **variable** -- By creating a new class which implements Notifier interface
+* **By creating a new class which implements Notifier interface** :
 ```java
 class EmailNotifier implements Notifier{
 	@Override
@@ -47,8 +47,26 @@ Notifier emailNotifierAc = new Notifier() {
 	}
 };
 ```
+Let's rewrite the above implementation using lambdas.
 
-* **By using lambdas** In this case, there is no need to define the type  or declare a new class here . You can directly pass the function	
+* **By using lambdas** In this case, there is no need to define the type or declare a new class here . You can directly pass the function .	
+
+```java
+Notifier emailNotifierFi = ()-> System.out.println("I m lambda and notifying you");
+emailNotifierFi.notifyMe();
+```
+
+lets see how many class files are generated after compilation if all the 3 cases are merged into one class (assuming the class name is DifferenceFinder.java):
+
+<p align="center">
+  <img src="https://github.com/javatechy/java8/blob/master/src/main/java/javatechy/lambdas/subsitute/output.PNG" alt="output" height="320"/>
+</p>
+
+Only one class DifferenceFinder$1.class is generated for case 2 but we were expecting 2 inner class generation here -one for anonymouse inner class
+and another class for 
+
+
+You can directly pass the function	
 Lambda implementation is based on InvokeDynamic instruction, introduced in Java 7.
 What's InvokeDynamic?
 It's a big topic but the short answer is: to generate code in runtime. The Java maintainers chose to
@@ -61,16 +79,5 @@ Lambda converted to a method to be invoked by invokedynamic.
 The method is stored in a class as a private static method.
 There are two lambda types. Non-capturing lambdas only use fields inside their bodies, whereas capturing lambdas access fields outside their bodies.
 
-```java
-Notifier emailNotifierFi = ()-> System.out.println("I m lambda and notifying you");
-emailNotifierFi.notifyMe();
-```
 
-lets see how many class files are generatered after compilation if all the 3 cases are merged into one class (assuming the class name is DifferenceFinder.java):
-
-<p align="center">
-  <img src="https://github.com/javatechy/java8/blob/master/src/main/java/javatechy/lambdas/subsitute/output.PNG" alt="output" height="320"/>
-</p>
-
-Only one class DifferenceFinder$1.class is generated for case 2 but we were expecting 2 inner class generation here -one for anonymouse inner class
-and another class for 
+Reference: https://stackoverflow.com/questions/30002380/why-are-java-8-lambdas-invoked-using-invokedynamic
