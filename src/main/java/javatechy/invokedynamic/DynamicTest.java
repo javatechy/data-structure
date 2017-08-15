@@ -5,11 +5,6 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 import java.lang.invoke.MutableCallSite;
-import java.util.stream.IntStream;
-
-import com.sun.xml.internal.ws.client.sei.MethodHandler;
-
-import jdk.nashorn.internal.lookup.MethodHandleFactory.LookupException;
 
 public class DynamicTest {
 
