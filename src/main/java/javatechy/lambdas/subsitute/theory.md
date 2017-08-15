@@ -73,3 +73,4 @@ I won't go  in details lets focus on lambdas only.
 
 Muliple Arguements in Lambdas
 -----------------------------
+We just saw how you can convert a simple am
