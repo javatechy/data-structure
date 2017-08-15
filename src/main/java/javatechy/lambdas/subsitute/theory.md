@@ -21,7 +21,6 @@ interface Notifier {
 ```
 
 There are 3 ways of providing the implementation:
-Prior to Java 8:
 * **By creating a new class which implements Notifier interface** :
 ```java
 class EmailNotifier implements Notifier{
@@ -62,22 +61,13 @@ lets see how many class files are generated after compilation if all the 3 cases
   <img src="https://github.com/javatechy/java8/blob/master/src/main/java/javatechy/lambdas/subsitute/output.PNG" alt="output" height="320"/>
 </p>
 
-Only one class DifferenceFinder$1.class is generated for case 2 but we were expecting 2 inner class generation here -one for anonymouse inner class
-and another class for 
+Only one class DifferenceFinder$1.class is generated for case 2 but no inner class is generated for lambda expression because lambdas are implemented differenly in Java 8
+than anaonymouse class. Lambda implementation is based on InvokeDynamic instruction, introduced in Java 7.
+
+* What's InvokeDynamic?
+It's a big topic but so short answer is: to generate code at runtime. The Java developers chose to
+ generate the implementation class at runtime. This is done by calling java.lang.invoke.LambdaMetafactory.metafactory
+
+I won't go  in details lets focus on lambdas only.
 
 
-You can directly pass the function	
-Lambda implementation is based on InvokeDynamic instruction, introduced in Java 7.
-What's InvokeDynamic?
-It's a big topic but the short answer is: to generate code in runtime. The Java maintainers chose to
- generate the implementation class in runtime. This is done by calling java.lang.invoke.LambdaMetafactory.metafactory
-
-A lambda works like this:
-
-* Generates invokedynamic call site and uses a lambdafactory to return the functional implementation.
-* Lambda converted to a method to be invoked by invokedynamic.
-* The method is stored in a class as a private static method.
-* There are two lambda types. Non-capturing lambdas only use fields inside their bodies, whereas capturing lambdas access fields outside their bodies.
-
-
-Reference: https://stackoverflow.com/questions/30002380/why-are-java-8-lambdas-invoked-using-invokedynamic
