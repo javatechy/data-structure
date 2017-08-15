@@ -38,8 +38,7 @@ Notifier emailNotifier = new EmailNotifier();
 emailNotifier.notifyMe();
 ```
 	
-* **By creating an anonymous class** -- :
-
+* **By creating an anonymous class** -- : The compiler generates a class file for each anonymous inner class and the generated class needs to be loaded and at startup.
 ```java
 Notifier emailNotifierAc = new Notifier() {
 	@Override
@@ -50,6 +49,17 @@ Notifier emailNotifierAc = new Notifier() {
 ```
 
 * **By using lambdas** In this case, there is no need to define the type  or declare a new class here . You can directly pass the function	
+Lambda implementation is based on InvokeDynamic instruction, introduced in Java 7.
+What's InvokeDynamic?
+It's a big topic but the short answer is: to generate code in runtime. The Java maintainers chose to
+ generate the implementation class in runtime. This is done by calling java.lang.invoke.LambdaMetafactory.metafactory
+
+A lambda works like this:
+
+Generates invokedynamic call site and uses a lambdafactory to return the functional implementation.
+Lambda converted to a method to be invoked by invokedynamic.
+The method is stored in a class as a private static method.
+There are two lambda types. Non-capturing lambdas only use fields inside their bodies, whereas capturing lambdas access fields outside their bodies.
 
 ```java
 Notifier emailNotifierFi = ()-> System.out.println("I m lambda and notifying you");
