@@ -19,3 +19,4 @@ interface Notifier {
 	void notifyMe();
 }
 ```
+
