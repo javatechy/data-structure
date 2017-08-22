@@ -22,7 +22,7 @@ public class DynamicTest {
 	public static void main(String[] args) throws Throwable {
 		CallSite callSite = callMeMethod();
 		// DynamicTest test = new DynamicTest();
-		//MethodHandle handler = callSite.getTarget();
+		// MethodHandle handler = callSite.getTarget();
 		MethodHandle handler = callSite.dynamicInvoker();
 		for (int i = 0; i < 10; i++) {
 			handler.invoke();
@@ -32,18 +32,19 @@ public class DynamicTest {
 		// IntStream.range(0, 11).forEach(i->handler.invoke());
 	}
 
-	private static void changeHandle(CallSite callSite, int index) throws NoSuchMethodException, IllegalAccessException {
+	private static void changeHandle(CallSite callSite, int index)
+			throws NoSuchMethodException, IllegalAccessException {
 		if (callSite.getTarget().equals(tickHandle)) {
 			callSite.setTarget(tockHandle);
 		} else {
 			callSite.setTarget(tickHandle);
 		}
-		if(index==8){
-			Runnable runnable =  ()-> System.out.println("Runnable thread handler");
-			MethodHandles.Lookup  lookup =  MethodHandles.lookup();
+		if (index == 8) {
+			Runnable runnable = () -> System.out.println("Runnable thread handler");
+			MethodHandles.Lookup lookup = MethodHandles.lookup();
 			MethodHandle handler = lookup.findVirtual(runnable.getClass(), "run", MethodType.methodType(void.class));
 			handler.bindTo(runnable);
-			
+
 		}
 	}
 

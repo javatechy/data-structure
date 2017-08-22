@@ -1,43 +1,41 @@
-Different Types of Bean Injection in Spring
------
-Overview:
------
+# Different Types of Bean Injection in Spring
+
+##Overview:
 Dependency Injection (DI) or "Inversion of Control(IOC)" is the core feature of  spring. Let's learn about the dependency injection and its types and how we can use it in spring
 
-What's DI?
------
+Overview:
+Dependency Injection (DI) or "Inversion of Control(IOC)" is the core feature of spring. Let's learn about the dependency injection and its types and how we can use it in spring.
+
+## What's DI?
 
 In simple words, its injection of dependencies.
 
-What's dependecy?
- A Dependencuy is just another object that your class needs to function. and injection is the process of providing those dependencies.
+A Dependency is just an object that a class needs to function. and injection is the process of providing those dependencies.
  
- example: Suppose you have a service class that fetches data from Database object , then we can say that Service class has a dependency on Database object
+example: Suppose you have a service class that fetches data from a Database object, then we can say that Service class has a dependency on the Database object
  
- DI means dependency is provided to the class from outside means you dont need to instantiate a dependency from inside the class. Instead you can take it as contructor paramenter or from setter.
+Dependency Injection means dependency is provided to the class from outside means you don't need to instantiate a dependency from inside the class. Instead, you can take it as a constructor parameter or from the setter. DI is based on dependency inversion principle:
  
- Why Do we need it?
+##### Dependency Inversion principle:
+It states that a code should be dependent on abstraction(Interfaces). By depending on interfaces we are decoupling the implementations.By using it we decouple our code from the lower level implementations making our code cleaner, easier to modify and easier to reuse.
  
- It decouples your classes contruction  from the construction of its dependencies.
- 
- Depenceny Inversion principle:
- Its states that a code should depened on abstraction(Interfaces). By depending on interfaces we are depcoupling  the implementions.
- By usinfg it  we decouple our code from the lower level implementaions making our code cleaner , easier to modify and easier to reuse.
- 
-   
 
 Dependency Injection (DI) is a design pattern that implements inversion of control to resolve dependencies.It is the process of providing external dependency to a software component.
 
-DI is a process whereby objects define their dependencies. 
-
-
-Its a way in which we decouple the conventional dependency relationships between objects.
+It's a way in which we decouple the conventional dependency relationships between objects.
 
 The container then injects those dependencies, and it creates the bean. This process is named Inversion of Control (IoC) (the bean itself controls the instantiation or location of its dependencies by using direct construction classes or a Service Locator).
 
 Being object-oriented programmers, we tend to create more loosely coupled and reusable beans that make them dependent on each other.
  Spring framework made the availability of those dependencies easy, by inverting the flow of control. We just need to define bean dependencies using different types of bean dependency injections.
 
+To decouple Java components from other Java components the dependency to a certain other class should get injected into them rather than the class itself creates/finds this object. Class A has a dependency to class B if the class uses class B as a variable.
+
+If dependency injection is used then class B is given to class A via
+
+the constructor of class A - this is then called construction injection
+
+a setter - this is then called setter injection
 
 
 Types of Bean Injection in Spring
@@ -45,73 +43,64 @@ Types of Bean Injection in Spring
 
 Spring supports two types of dependency injection:
 
-1) Constructor-based dependency injection: It is accomplished when the container invokes a class constructor with a number of arguments, each representing a dependency on other class.
-
-2) Setter-based dependency injection: It is accomplished by the container calling setter methods on your beans after invoking a no-argument constructor or no-argument static factory method to instantiate your bean.
+Constructor-based dependency injection: 
 
 
+It is accomplished when the container invokes a class constructor with a number of arguments, each representing a dependency on other class.
+
+ Spring offers two different ways to define bean dependency injections.
+
+Constructor based injection lets you define bean dependencies via constructor as one or more constructor arguments, which are injected by the container at the time of bean creation. Now let's define a constructor based injection by annotation first:
+
+```java
+private EmployeeService employeeService;
+
+@Autowired
+public EmployeeController (EmployeeService employeeService){
+   this.employeeService = employeeService;
+
+}
+```
+
+Here, the @Autowired annotation marked the constructor to be auto-wired, all the arguments are injected by Spring using AutowiredAnnotationBeanPostProcessor.
+
+It is important to note that only one constructor can be marked as auto-wired for any given bean although it doesn’t need to be public.
+
+The @Autowired annotation has one attribute ‘required’, that is by default set to true. If there are multiple arguments in the constructor, all will be required and auto-wired by the container.
+
+
+
+
+* ** Setter-based dependency injection **: It is accomplished by the container calling setter methods on your beans after invoking a no-argument constructor or no-argument static factory method to instantiate your bean.
+
+The other way to define bean dependencies is through property or setter method:
+
+```java
+public class Employee {
+   //standard setters and getters
+
+   
+   ﻿@Autowired
+   @Qualifier("officeAddress")
+   private Address address;
+﻿
+}
+
+//or add a setter and mark it autowired
+ 
+
+ @Autowired
+﻿ public void setAddress(Address address) {
+    this.address = address;
+ }
+
+```
 
 Let's understand this with an example:
-
-Consider an interface with one method notifyMe():
-
-```java
-interface Notifier {
-	void notifyMe();
-}
-```
-
-There are 3 ways of providing the implementation:
-* **By creating a new class which implements Notifier interface** :
-```java
-class EmailNotifier implements Notifier{
-	@Override
-	public void notifyMe() {
-		System.out.println("I m in EmailNotifier notifying your for the mails");
-	}
-}
-```
-and then call it like this:
-
-```java
-Notifier emailNotifier = new EmailNotifier();
-emailNotifier.notifyMe();
-```
-	
-* **By creating an anonymous class** -- : The compiler generates a class file for each anonymous inner class and the generated class needs to be loaded and at startup.
-```java
-Notifier emailNotifierAc = new Notifier() {
-	@Override
-	public void notifyMe() {
-		System.out.println("I m anonymous class and notifying you");
-	}
-};
-```
-Let's rewrite the above implementation using lambdas.
-
-* **By using lambdas** In this case, there is no need to define the type or declare a new class here . You can directly pass the function .	
-
-```java
-Notifier emailNotifierFi = ()-> System.out.println("I m lambda and notifying you");
-emailNotifierFi.notifyMe();
-```
-
-lets see how many class files are generated after compilation if all the 3 cases are merged into one class (assuming the class name is DifferenceFinder.java):
-
-<p align="center">
-  <img src="https://github.com/javatechy/java8/blob/master/src/main/java/javatechy/lambdas/subsitute/output.PNG" alt="output" height="320"/>
-</p>
-
-Only one class DifferenceFinder$1.class is generated for case 2 but no inner class is generated for lambda expression because lambdas are implemented differenly in Java 8
-than anaonymouse class. Lambda implementation is based on InvokeDynamic instruction, introduced in Java 7.
-
-* What's **InvokeDynamic**?
-It's a big topic but so short answer is: to generate code at runtime. The Java developers chose to
- generate the implementation class at runtime. This is done by calling java.lang.invoke.LambdaMetafactory.metafactory
-
-I won't go  in details lets focus on lambdas only.
+Here, we used another annotation @Qualifier, it injects the bean with the given bean name but remains optional. By default, the @Autowired annotation injects the bean dependency by type.
 
 
-Muliple Arguements in Lambdas
------------------------------
-We just saw how you can convert a simple am
+Constructor based injection is recommended to get all the dependencies of a given bean at the time of creation, but mostly constructor based injection is used for the mandatory dependencies and setter-based injection for the optional ones.
+
+
+@Autowired will tell Spring to search for a Spring bean which implements the required interface and place it automatically into the setter.
