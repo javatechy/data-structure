@@ -8,13 +8,13 @@ import java.util.logging.Logger;
 public class Vote {
 
     static Logger logger = Logger.getLogger("mylogger");
-    private static final int THREAD_POOL_SIZE = 3;
+    private static final int THREAD_POOL_SIZE = 30;
     static Integer VOTE_COUNT = 0;
-    private static final String VOTE_CURL = "curl -X POST -F 'contestantId=9' -F 'validate=0' https://www.voot.com/bigg-boss/biggboss11/bb11/submit-voting";
+    private static final String VOTE_CURL = "curl -X POST -F 'contestantId=5' -F 'validate=0' https://www.voot.com/bigg-boss/biggboss11/bb11/submit-voting";
 
     public static void main(String[] args) {
         ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-        for (int i = 0; i <= 2; i++) {
+        for (int i = 0; i <= 20000; i++) {
             executor.execute(() -> {
                 voteBB();
             });
@@ -22,11 +22,11 @@ public class Vote {
         executor.shutdown();
         while (!executor.isTerminated()) {
         }
-        print("Finished all threads" + VOTE_COUNT);
+        System.out.println("Finished all threads" + VOTE_COUNT);
     }
 
     private static void print(Object str) {
-        logger.info(str.toString());
+        //logger.info(str.toString());
     }
 
     static String convertStreamToString(java.io.InputStream is) {
