@@ -1,8 +1,6 @@
+package geeksforgeeks;
 
-//package geeksforgeeks;
-
-import java.util.stream.*;
-import java.util.*;
+import java.util.stream.IntStream;
 
 /**
 Reversal algorithm for array rotation

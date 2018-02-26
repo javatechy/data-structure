@@ -1,8 +1,4 @@
-
-//package geeksforgeeks;
-
-import java.util.stream.*;
-import java.util.*;
+package geeksforgeeks;
 
 /**
 Largest Sum Contiguous Subarray
