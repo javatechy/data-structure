@@ -17,9 +17,8 @@ class MergeSort {
             int mid = (left + right) / 2;
             print("\n\n splitAndMerge(arr, " + left + ", " + mid + ")");
             splitAndMerge(arr, left, mid);
-            print("\n--------------------calling post mid");
+     //       print("\n--------------------calling post mid");
             print("\n\n splitAndMerge(arr, " + (mid + 1) + ", " + right + ")");
-
             splitAndMerge(arr, mid + 1, right);
             merge(arr, left, mid, right);
         }
@@ -27,6 +26,7 @@ class MergeSort {
     }
 
     private static int[] merge(int[] arr, int left, int mid, int right) {
+        print("\n Inside merge(arr," + left + "," + mid + "," + right + ")");
         int n1 = mid - left + 1;
         int n2 = right - mid;
         int leftArr[] = new int[n1];
