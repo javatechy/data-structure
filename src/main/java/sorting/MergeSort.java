@@ -1,7 +1,8 @@
 package sorting;
 
 /**
- *  Example:
+ * O(nlogn) - Time Complexity
+ * O(n) - Space Complexity
 */
 class MergeSort {
 
