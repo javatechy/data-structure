@@ -1,15 +1,15 @@
 package sorting;
 
 /**
- *  Example:
-  
+  Time Complexity: O(n*n)
+    Auxiliary Space: O(1)
 */
-class MergeSort {
+class InsertionSort {
 
     public static void main(String[] argv) throws Exception {
         // int[] arr = new int[] { 10, 2, 20, 5, 18, 12 };
-        int[] arr = new int[] { 5, 1, 8, 2, 4 };
-        int[] sortedArray = mergeSort(arr);
+        int[] arr = new int[] { 12, 11, 13, 5, 6 };
+        int[] sortedArray = insertionSort(arr);
         printArray(sortedArray);
     }
 
@@ -19,11 +19,11 @@ class MergeSort {
         }
     }
 
-    private static int[] mergeSort(int[] arr) {
+    private static int[] insertionSort(int[] arr) {
         int len = arr.length;
         for (int i = 0; i < len; i++) {
-            for (int j = i + 1; j < len; j++) {
-                if (arr[i] > arr[j]) {
+            for (int j = 0; j < i; j++) {
+                if (arr[i] < arr[j]) {
                     int temp = arr[i];
                     arr[i] = arr[j];
                     arr[j] = temp;
