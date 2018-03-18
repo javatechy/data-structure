@@ -1,4 +1,4 @@
-package geeksforgeeks;
+package general;
 
 /**
  * Prime Number

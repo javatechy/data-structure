@@ -1,6 +1,6 @@
-package geeksforgeeks.linkedlist;
+package linkedlist;
 
-import geeksforgeeks.linkedlist.LinkedList.Node;
+import linkedlist.LinkedList.Node;
 
 /**
  * https://www.geeksforgeeks.org/array-rotation/

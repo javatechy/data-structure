@@ -1,4 +1,4 @@
-package geeksforgeeks.linkedlist;
+package linkedlist;
 
 public class LinkedList {
 

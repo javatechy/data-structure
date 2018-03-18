@@ -1,4 +1,4 @@
-package geeksforgeeks;
+package general;
 
 /**
 Largest Sum Contiguous Subarray

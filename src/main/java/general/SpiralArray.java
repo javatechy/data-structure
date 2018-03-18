@@ -1,4 +1,4 @@
-package generla;
+package general;
 
 /**
  *  Print 2d array in spiral form

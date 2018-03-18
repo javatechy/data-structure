@@ -1,4 +1,4 @@
-package geeksforgeeks.arrays;
+package general;
 
 import java.util.stream.IntStream;
 

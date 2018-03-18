@@ -1,4 +1,4 @@
-package geeksforgeeks;
+package general;
 
 import java.util.stream.IntStream;
 

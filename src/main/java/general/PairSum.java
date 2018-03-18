@@ -1,14 +1,10 @@
-package geeksforgeeks.interviews;
-//package geeksforgeeks;
-
-import java.util.stream.*;
-import java.util.*;
+package general;
 
 /**
 Largest Sum Contiguous Subarray
 Pair Sum
 */
-class AmazonClass {
+class PairSum {
 
     public static void main(String[] argv) throws Exception {
         int[] arr = new int[] {-2,-3,-1,-5,-1,-2,-1,-5,-3};

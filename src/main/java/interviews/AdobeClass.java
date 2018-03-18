@@ -1,4 +1,4 @@
-package geeksforgeeks.interviews;
+package interviews;
 
 import java.util.HashMap;
 import java.util.Map;
