@@ -1,14 +1,9 @@
 package linkedlist;
 
-import linkedlist.LinkedList.Node;
-
 /**
- * https://www.geeksforgeeks.org/array-rotation/
  * @author deepak
- *
  */
 public class CreateLinkedList {
-    
 
     public static void main(String[] args) {
         LinkedList llist = new LinkedList();
@@ -29,14 +24,15 @@ public class CreateLinkedList {
     }
 }
 
-class LinkedListl{
+class LinkedListl {
 
     Node head; // head of list
 
     /* Linked list Node*/
-   static class Node {
+    static class Node {
         int data;
         Node next;
+
         Node(int d) {
             data = d;
         }
