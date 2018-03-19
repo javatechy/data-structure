@@ -11,7 +11,6 @@ public class Fibonacci {
         IntStream.range(1, n)
             .forEach(n1 -> print(fibonacciRecursion(n1)));
         print("WITHOUT RECURTSION - Print  " + n + " finbonacci Numbers");
-
         fibonacciPlain(n);
         lookup = new int[n];
         fibonacciDynamicProgramming(n);
@@ -20,14 +19,12 @@ public class Fibonacci {
     private static int fibonacciDynamicProgramming(int n) {
         int f[] = new int[n + 1];
         int i;
-        /* 0th and 1st number of the series are 0 and 1*/
+        // 0th and 1st number of the series are 0 and 1
         f[0] = 0;
         f[1] = 1;
-        for (i = 2; i <= n; i++) {
+        for (i = 2; i <= n; i++)
             f[i] = f[i - 1] + f[i - 2];
-        }
         return f[n];
-
     }
 
     private static void fibonacciPlain(int n) {
