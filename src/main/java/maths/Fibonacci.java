@@ -1,30 +1,33 @@
 package maths;
 
-import java.util.stream.IntStream;
-
 public class Fibonacci {
     static int[] lookup;
 
     public static void main(String a[]) {
-        int n = 20;
-        print("SUM -> " + fibonacciRecursion(n));
-        IntStream.range(1, n)
-            .forEach(n1 -> print(fibonacciRecursion(n1)));
+        int n = 50;
+        lookup = new int[n + 1];
+        long startTime = System.currentTimeMillis();
+        int fibonacciRecursionSum = fibonacciRecursion(n);
+        long endTime = System.currentTimeMillis();
+        print("SUM -> " + fibonacciRecursionSum + " in " + (endTime - startTime));
+        startTime = System.currentTimeMillis();
+        fibonacciRecursionSum = fibonacciDynamicProgramming(n);
+        endTime = System.currentTimeMillis();
+        print("SUM(DP) -> " + fibonacciRecursionSum + " in " + (endTime - startTime));
+        //IntStream.range(1, n)
+        //    .forEach(n1 -> print(fibonacciRecursion(n1)));
         print("WITHOUT RECURTSION - Print  " + n + " finbonacci Numbers");
-        fibonacciPlain(n);
-        lookup = new int[n];
-        fibonacciDynamicProgramming(n);
+        // fibonacciPlain(n);
+        
     }
 
     private static int fibonacciDynamicProgramming(int n) {
-        int f[] = new int[n + 1];
-        int i;
-        // 0th and 1st number of the series are 0 and 1
-        f[0] = 0;
-        f[1] = 1;
-        for (i = 2; i <= n; i++)
-            f[i] = f[i - 1] + f[i - 2];
-        return f[n];
+        print("\n n= " + n);
+        if (n <= 1)
+            return n;
+        if (lookup[n] != 0)
+            return n;
+        return fibonacciRecursion(n - 1) + fibonacciRecursion(n - 2);
     }
 
     private static void fibonacciPlain(int n) {
