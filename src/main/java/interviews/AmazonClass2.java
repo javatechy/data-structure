@@ -1,4 +1,4 @@
-package solutions;
+package interviews;
 
 import java.util.List;
 import java.util.Map;
@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-class AmazonClass {
+class AmazonClass2 {
 
     public static void main(String[] argv) throws Exception {
 
-        new AmazonClass().logic();
+        new AmazonClass2().logic();
     }
 
     private  void logic() {
@@ -41,6 +41,7 @@ class AmazonClass {
             print2("" + finalCount);
             finalCount = 0;
         }
+        scanner.close();
     }
 
     public  int getUniqeCount(String arg) {
@@ -49,10 +50,6 @@ class AmazonClass {
             if (!unique.contains(arg.charAt(i)))
                 unique.add(arg.charAt(i));
         return unique.size();
-    }
-
-    private void print(String str) {
-        // System.out.println("::" + str);
     }
 
     private void print2(String str) {

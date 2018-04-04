@@ -53,6 +53,7 @@ class TestClass {
             print2("" + finalCount);
             finalCount = 0;
         }
+        scanner.close();
     }
 
     public  int getUniqeCount(String arg) {

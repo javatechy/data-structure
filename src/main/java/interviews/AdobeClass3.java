@@ -22,6 +22,7 @@ class AdobeClass3 {
         
         */
         print("treult => " + subArraySum(input, n, sum));
+        sc.close();
     }
 
     public static void print(Object o) {

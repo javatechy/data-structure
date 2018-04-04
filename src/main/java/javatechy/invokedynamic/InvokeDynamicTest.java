@@ -19,7 +19,7 @@ public class InvokeDynamicTest {
 	public static void main(String[] args) throws Throwable {
 		InvokeDynamicTest test = new InvokeDynamicTest();
 		test.instMethod(2.0);
-		test.staticMethod(4);
+		staticMethod(4);
 		MethodHandles.Lookup lookup = MethodHandles.lookup();
 		MethodHandle staticMethodHandle = lookup.findStatic(InvokeDynamicTest.class, "staticMethod", MethodType.methodType(void.class, double.class));
 		staticMethodHandle.invoke(2.2);	
