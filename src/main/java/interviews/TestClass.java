@@ -64,10 +64,7 @@ class TestClass {
         return unique.size();
     }
 
-    private void print(String str) {
-        // System.out.println("::" + str);
-    }
-
+   
     private void print2(String str) {
         System.out.println("" + str);
     }
