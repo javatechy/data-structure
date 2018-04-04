@@ -1,4 +1,4 @@
-package javatechy;
+package utils;
 
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
