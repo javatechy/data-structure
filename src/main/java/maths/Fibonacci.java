@@ -30,7 +30,8 @@ public class Fibonacci {
         return fibonacciRecursion(n - 1) + fibonacciRecursion(n - 2);
     }
 
-    private static void fibonacciPlain(int n) {
+    @SuppressWarnings("unused")
+	private static void fibonacciPlain(int n) {
         print("1, 1");
         int prev1 = 1;
         int prev2 = 1;

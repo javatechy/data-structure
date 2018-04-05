@@ -25,7 +25,6 @@ class SmallestElementRepeatedKTimes {
     public static void main(String[] argv) throws Exception {
         int[] arr = new int[] { 2, 1, 3, 1, 2, 2 };
         print("HELLO");
-        int n = 2;
         Map<Integer, Integer> map = new TreeMap<>();
         IntStream.range(0, arr.length)
             .forEach(t -> {

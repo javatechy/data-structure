@@ -49,6 +49,7 @@ public class ArrayRotation {
             return gcd(b, a % b);
     }
 
+    @SuppressWarnings("unused")
     private static void methodByO_dxN(int[] arr, int d) {
         IntStream.range(0, d)
             .forEach(t -> {
