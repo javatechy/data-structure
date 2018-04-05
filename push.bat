@@ -1,1 +1,0 @@
-git add * && git commit -m "java 8 lambdas" && git push https://javatechy@github.com/javatechy/java8 --all
