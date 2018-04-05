@@ -4,12 +4,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>poc.java8</groupId>
-	<artifactId>java8</artifactId>
+	<groupId>poc.interview</groupId>
+	<artifactId>interview</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>java8</name>
+	<name>interview questions</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
