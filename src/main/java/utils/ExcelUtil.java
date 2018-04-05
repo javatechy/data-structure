@@ -10,7 +10,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -21,7 +20,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 @SuppressWarnings({ "resource", "deprecation", "rawtypes" })
 public class ExcelUtil {
 
-	Logger logger = Logger.getLogger(ExcelUtil.class);
 	String[][] data = null;
 
 	public HashMap<Integer, List<String>> read(String inputFile) throws IOException {
