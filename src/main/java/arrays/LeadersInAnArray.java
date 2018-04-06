@@ -1,4 +1,4 @@
-package general;
+package arrays;
 
 /**
 Leaders in an array

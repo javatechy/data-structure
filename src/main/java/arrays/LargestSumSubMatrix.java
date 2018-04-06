@@ -1,4 +1,4 @@
-package general;
+package arrays;
 
 /**
  * Given a 2D array, find the maximum sum subarray in it
