@@ -22,15 +22,22 @@ public class Common {
 	}
 
 	/**
-	 * Print 1D array
+	 * Print 2D array with speperator
 	 */
 	public static void printArray(int[] arr) {
+		printArray(arr, " , ");
+	}
+
+	/**
+	 * Print 1D array
+	 */
+	public static void printArray(int[] arr, String sepeartor) {
 		/// println();
 		for (int i = 0; i < arr.length; i++) {
 			if (i == arr.length - 1)
 				System.out.print(arr[i]);
 			else
-				System.out.print(arr[i] + " , ");
+				System.out.print(arr[i] + sepeartor);
 		}
 		println();
 	}
@@ -47,11 +54,35 @@ public class Common {
 		}
 	}
 
+	public static void print2DArray(String string, int[][] arr) {
+		System.out.print(string + " => \n");
+		print2DArray(arr, " ");
+	}
+
+	public static void print2DArray(int[][] arr, String seperator) {
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++)
+				System.out.print(arr[i][j] + seperator);
+			System.out.println();
+		}
+	}
+
 	/**
 	 * Arrays to List
 	 */
 	public static <T> List<T> arrayToList(T[] array) {
 		return new ArrayList<>(Arrays.asList(array));
 
+	}
+
+	public static int max(int i, int j) {
+		if (i > j)
+			return i;
+		return j;
+	}
+	
+	public static void intialize2DMatrix(int[][] mat, int value) {
+		for (int i = 0; i < mat.length; i++)
+			Arrays.fill(mat[i], value);
 	}
 }
