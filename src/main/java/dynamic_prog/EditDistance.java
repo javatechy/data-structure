@@ -71,18 +71,4 @@ public class EditDistance {
 		print2DArray(mat, SEPERATOR);
 	}
 
-	private static int editDistance(String first, String second) {
-		if (first == null || second == null)
-			return 0;
-		int flen = first.length();
-		int slen = second.length();
-		if (first.charAt(flen - 1) == second.charAt(slen - 1)) {
-			return 0;
-		}
-		if (first.charAt(flen - 1) != second.charAt(slen - 1)) {
-			return 1;
-		}
-		return 0;
-	}
-
 }
