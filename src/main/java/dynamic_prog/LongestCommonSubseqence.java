@@ -17,10 +17,14 @@ public class LongestCommonSubseqence {
 
 	// Driver program to test above functions
 	public static void main(String[] args) {
-		print("Longest common sequence " + longestIncreasingSubsequence("abc".toCharArray(), "cba".toCharArray()));
+		String str1 = "abc";
+		String str2 = "cba";
+		// print("Longest common sequence " +
+		// longestCommonSubsequenceDp(str1.toCharArray(), str2.toCharArray()));
+		print("Longest common sequence " + longestCommonSubsequence(str1, str2));
 	}
 
-	private static int longestIncreasingSubsequence(char[] firstArr, char[] secondArr) {
+	private static int longestCommonSubsequenceDp(char[] firstArr, char[] secondArr) {
 		int flen = firstArr.length;
 		int slen = secondArr.length;
 		int row = flen + 1;
@@ -45,5 +49,25 @@ public class LongestCommonSubseqence {
 		}
 		return mat[row - 1][col - 1];
 	}
-	
+
+	public static String longestCommonSubsequence(String a, String b) {
+		println(a + "  ||  " + b);
+		int alength = a.length() - 1;
+		int blength = b.length() - 1;
+
+		if (alength < 0 || blength < 0)
+			return "";
+
+		if (a.substring(alength).equals(b.substring(blength))) {
+			return longestCommonSubsequence(a.substring(0, alength), b.substring(0, blength)) + a.substring(alength);
+		} else {
+			String first = longestCommonSubsequence(a, b.substring(0, blength));
+			String second = longestCommonSubsequence(a.substring(0, alength), b);
+			if (first.length() > second.length()) {
+				return first;
+			} else {
+				return second;
+			}
+		}
+	}
 }
