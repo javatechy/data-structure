@@ -12,7 +12,7 @@ public class DateFormatFinder {
             "MM/dd/yyyy'T'HH:mm:ss.SSS'Z'", "MM/dd/yyyy'T'HH:mm:ss.SSSZ", "MM/dd/yyyy'T'HH:mm:ss.SSS", "MM/dd/yyyy'T'HH:mm:ssZ", "MM/dd/yyyy'T'HH:mm:ss", "yyyy:MM:dd HH:mm:ss", "yyyyMMdd", };
 
     public static void main(String[] args) {
-        String yyyyMMdd = "January 18 2018 at 11:00 AM IST";
+        String yyyyMMdd = "Dec 8, 2010";
         parse(yyyyMMdd);
     }
 
