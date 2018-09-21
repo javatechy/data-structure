@@ -1,5 +1,6 @@
 package functional;
 
+
 interface Demo1 {
 	default void show() {
 		System.out.println("in demo1 show()");

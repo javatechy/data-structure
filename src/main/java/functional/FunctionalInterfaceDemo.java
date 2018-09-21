@@ -2,7 +2,7 @@ package functional;
 
 import java.util.function.Function;
 
-public class FunctionalInterface {
+public class FunctionalInterfaceDemo {
 
 	public static void main(String[] arr) {
 		Function<String, Integer> functional = (s) -> {

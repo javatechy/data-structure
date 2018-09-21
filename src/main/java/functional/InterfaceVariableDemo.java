@@ -1,5 +1,6 @@
 package functional;
 
+
 interface DemoVar {
 	int a = 10;
 

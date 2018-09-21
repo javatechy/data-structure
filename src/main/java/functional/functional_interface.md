@@ -24,8 +24,8 @@ Default method can also be overridden.
 
 # Multiple Inhertience issue with interfaces:
 
-If a class  is implemting 2 interfces having same default methods it leads to a Multiple Inhertience issue.
-In this case class has to give the implentaion of common method. example =  MultipleInhertienceProblemDemo.java
+If a class  is implementing 2 interfaces having same default methods it leads to a Multiple Inhertience issue.
+In this case class has to give the implementation of common method. example =  MultipleInhertienceProblemDemo.java
 
 
 What if you want to choose one of the implementation
