@@ -2,6 +2,8 @@ package arrays;
 
 import java.util.stream.IntStream;
 
+import utils.Common;
+
 /**
  * https://www.geeksforgeeks.org/array-rotation/
  * @author deepak
@@ -14,6 +16,7 @@ public class ArrayRotation {
         int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 
         int d = 4;
+        
         // methodByO_dxN(arr, d);
         methodByJuggling(arr, d);
         printArray(arr, arr.length);
@@ -23,6 +26,7 @@ public class ArrayRotation {
         int i, j, k, temp;
         int n = arr.length;
         int gcd = gcd(d, n);
+        Common.print(gcd);
         for (i = 0; i < gcd; i++) {
             temp = arr[i];
             j = i;
