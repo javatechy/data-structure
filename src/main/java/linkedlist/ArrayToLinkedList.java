@@ -25,7 +25,7 @@ public class ArrayToLinkedList {
 
 	}
 
-	private static NodeLL convert(int... arr) {
+	public static NodeLL convert(int... arr) {
 		NodeLL head = new NodeLL(arr[0]);
 
 		NodeLL pointer = head;
