@@ -17,14 +17,11 @@ public class NoOfPathsIn2D {
 	static int[][] memo = new int[r][c];
 
 	public static void main(String arg[]) {
-
 		Common.print("\nTotal Paths " + findPathsTopDown(r, c, 0, 0));
 		Common.print("\nTotal Paths " + findPathsBottomUp(r, c));
 		Common.print("\nTotal Paths findPathsBottomUpMemoization : " + findPathsBottomUpMemoization(r, c));
 		Common.println();
-
 		Common.print2DArray(memo, " ");
-
 		Common.print("\nTotal Paths DP : " + findPathsDP(r, c));
 		Common.println();
 
@@ -64,10 +61,7 @@ public class NoOfPathsIn2D {
 	 * In below array memo[m-1][n-1] is our desired output.
 	 * 
 	 * 
-	 * 0 1 1 1 
-	 * 1 2 3 4 
-	 * 1 3 6 10 
-	 * 1 4 10 20
+	 * 0 1 1 1 1 2 3 4 1 3 6 10 1 4 10 20
 	 */
 	private static int findPathsDP(int r, int c) {
 
