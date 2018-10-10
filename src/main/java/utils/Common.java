@@ -17,6 +17,16 @@ public class Common {
 		System.out.print(x);
 	}
 
+	public static int[] strToIntArray(String str) {
+		int[] arr = new int[str.length()];
+		int i = 0;
+		for (char c : str.toCharArray()) {
+			arr[i] = Integer.parseInt(c + "");
+			i++;
+		}
+		return arr;
+	}
+
 	public static void println(Object x) {
 		System.out.println(x + "\n");
 	}
@@ -46,7 +56,7 @@ public class Common {
 	 * Print 2D array
 	 */
 	public static void printArray(int[][] arr) {
-		System.out.print(" ");
+		System.out.println();
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr.length; j++)
 				System.out.print(arr[i][j] + " ");
@@ -60,6 +70,7 @@ public class Common {
 	}
 
 	public static void print2DArray(int[][] arr, String seperator) {
+		println();
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr[i].length; j++)
 				System.out.print(arr[i][j] + seperator);
