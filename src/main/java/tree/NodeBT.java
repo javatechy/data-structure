@@ -1,9 +1,9 @@
 package tree;
 
 public class NodeBT {
-	int data;
-	NodeBT left;
-	NodeBT right;
+	public int data;
+	public NodeBT left;
+	public NodeBT right;
 
 	public NodeBT(int data) {
 		this.data = data;

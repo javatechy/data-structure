@@ -3,47 +3,62 @@ package tree;
 import utils.Common;
 
 public class BinaryTree {
-	private NodeBT root;
+	public NodeBT root;
 
 	public static void main(String[] args) {
-		BinaryTree bt = new BinaryTree();
-		bt.root = new NodeBT(1);
-
-		insert(bt.root, 1);
-		insert(bt.root, 2);
-		insert(bt.root, 3);
-		insert(bt.root, 4);
-		insert(bt.root, 5);
-		insert(bt.root, 6);
-		insert(bt.root, 30);
-		print(bt.root);
-		// insert(bt.root, 10);
+		BinaryTree bt = createBinaryTree(6,4,8,3,5,7,9);
+		inorder(bt.root);
+		Common.println();
+		preorder(bt.root);
+		Common.println();
+		postorder(bt.root);
 
 	}
 
-	private static void print(NodeBT root) {
+	public static void inorder(NodeBT root) {
+		if (root == null) {
+			return;
+		}
+		inorder(root.left);
+		Common.print(" " + root.data);
+		inorder(root.right);
+	}
+	
+	public static void postorder(NodeBT root) {
+		if (root == null) {
+			return;
+		}
+		postorder(root.left);
+		postorder(root.right);
+		Common.print(" " + root.data);
+	}
+	
+	public static void preorder(NodeBT root) {
 		if (root == null) {
 			return;
 		}
 		Common.print(" " + root.data);
-		print(root.left);
-		print(root.right);
+		preorder(root.left);
+		preorder(root.right);
+	}
+
+	public static BinaryTree createBinaryTree(int... arr) {
+		BinaryTree bt = new BinaryTree();
+		for (int a : arr)
+			bt.root = insert(bt.root, a);
+		return bt;
 	}
 
 	private static NodeBT insert(NodeBT root, int data) {
-
 		if (root == null) {
 			root = new NodeBT(data);
 			return root;
 		}
-
-		Common.println("Root data : " + root.data);
 		if (data < root.data) {
-			Common.println("Root left : " + root.data);
-			insert(root.left, data);
+			//Common.println("Root left : " + root.data);
+			root.left = insert(root.left, data);
 		} else {
-			Common.println("Root Right : " + root.data);
-			insert(root.right, data);
+			root.right = insert(root.right, data);
 		}
 		return root;
 	}
