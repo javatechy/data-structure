@@ -22,8 +22,9 @@ public class Islands {
 
 		int mat2[][] = { { 1, 1, 0, 0, 0 }, { 0, 1, 0, 0, 1 }, { 1, 0, 0, 1, 1 }, { 0, 0, 0, 0, 0 },
 				{ 1, 0, 1, 0, 1 } };
+		mat2 = mat;
 		Common.print2DArray(mat2, " ");
-		int islands = findIslands(mat2, mat.length, mat2[0].length);
+		int islands = findIslands(mat2, mat2.length, mat2[0].length);
 		Common.println("Totoal islands : " + islands);
 	}
 
