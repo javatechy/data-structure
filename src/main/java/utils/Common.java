@@ -77,6 +77,15 @@ public class Common {
 			System.out.println();
 		}
 	}
+	
+	public static void print2DArray(boolean[][] arr, String seperator) {
+		println();
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++)
+				System.out.print(arr[i][j] + seperator);
+			System.out.println();
+		}
+	}
 
 	/**
 	 * Arrays to List
