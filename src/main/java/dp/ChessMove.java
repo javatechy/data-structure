@@ -1,44 +1,75 @@
 package dp;
 
-import static utils.Common.intialize2DMatrix;
-import static utils.Common.min;
-import static utils.Common.print2DArray;
-import static utils.Common.println;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import utils.Common;
 
 public class ChessMove {
 
-	static int mat[][] = new int[8][8];
+	static boolean visted[][];
 
 	public static void main(String args[]) {
 
 		int source_row = 0;
 		int source_col = 0;
+		int dest_row = 7;
+		int dest_col = 6;
 
-		int dest_row = 0;
-		int dest_col = 0;
+		visted = new boolean[dest_row + 1][dest_col + 1];
+		int min = findKingMinPath(source_row, source_col, dest_row, dest_col);
 
-		int min = findKingMinPath(dest_row, dest_col);
-
+		// Common.print2DArray(visted, " ");
 		Common.println("Min Path : " + min);
 	}
 
-	private static int findKingMinPath(int des_r, int des_c) {
+	private static int findKingMinPath(int srcRow, int srcCol, int desRow, int desCol) {
 
-		if (des_r == 0 && des_c == 0) {
-			return 0;
+		Queue<Cell> queue = new LinkedList<>();
+		queue.add(new Cell(srcRow, srcCol, 0));
+
+		int possibleRows[] = { -2, -2, -1, -1, 1, 1, 2, 2 };
+		int possibleCols[] = { -1, 1, -2, 2, -2, 2, -1, 1 };
+
+		while (!queue.isEmpty()) {
+			Cell cell = queue.remove();
+			int row = cell.r;
+			int col = cell.c;
+			visted[row][col] = true;
+			// Common.println("------- ");
+			//Common.print2DArray(visted, " ");
+			if (row == desRow && col == desCol) {
+				return cell.dist;
+			}
+			for (int i = 0; i < possibleRows.length; i++) {
+				isPossible(possibleRows[i], possibleCols[i], row, col, queue, desRow, desCol, cell.dist);
+			}
+
+		}
+		return -1;
+	}
+
+	private static void isPossible(int i, int j, int row, int col, Queue<Cell> queue, int desRow, int desCol,
+			int distance) {
+		int newRow = row + i;
+		int newCol = col + j;
+		if (newRow >= 0 && newCol >= 0 && newRow <= desRow && newCol <= desCol && !visted[newRow][newCol]) {
+			//Common.println("R: " + newRow + "  |  C: " + newCol);
+			queue.add(new Cell(newRow, newCol, distance + 1));
 		}
 
-		if (des_r > 0 || des_c > 0) {
-			return 1;
+	}
+
+	static class Cell {
+		public int r;
+		public int c;
+		public int dist;
+
+		Cell(int r, int c, int distance) {
+			this.r = r;
+			this.c = c;
+			this.dist = distance;
 		}
-
-		int rc_1 = findKingMinPath(des_r, des_c - 1);
-		int r_1c = findKingMinPath(des_r - 1, des_c);
-		int r_1c_1 = findKingMinPath(des_r - 1, des_c - 1);
-		return Common.min(rc_1, r_1c, r_1c_1);
-
 	}
 
 }
