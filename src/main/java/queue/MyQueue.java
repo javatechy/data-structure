@@ -1,6 +1,9 @@
 package queue;
 
+import java.util.ArrayList;
+
 public class MyQueue {
+	
 	private Integer[] arr;
 	private int index;
 
@@ -8,9 +11,11 @@ public class MyQueue {
 		arr = new Integer[size];
 	}
 
-	public void enqueue(Integer obj) {
+	public void enQueue(Integer obj) {
 		if (index == arr.length)
 			throw new RuntimeException("Full call deque");
+
+		
 		arr[index] = obj;
 		index++;
 	}
@@ -19,7 +24,7 @@ public class MyQueue {
 		return index == 0;
 	}
 
-	public Integer dequeue() {
+	public Integer deQueue() {
 		if (isEmpty())
 			throw new RuntimeException("Empty ");
 		int obj = arr[0];
