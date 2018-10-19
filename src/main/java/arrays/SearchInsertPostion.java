@@ -4,6 +4,7 @@ import utils.Common;
 
 /**
  * https://medium.com/@rachit.slt/leetcode-search-for-a-range-753ae1765318
+ * https://leetcode.com/problems/search-insert-position/submissions/
  * 
  * @author deepak
  *
@@ -12,36 +13,47 @@ public class SearchInsertPostion {
 
 	// Driver program to test above functions
 	public static void main(String[] args) {
-		int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+		int arr[] = { 1, 3, 5, 7 };
 
-		int search = 4;
-		int start = 2;
-		int end = 8;
-		int pos = methodByJuggling(arr, start, end, search);
+		int search = 6;
+		int start = 0;
+		int end = arr.length - 1;
+		int pos = binarySearch(arr, start, end, search);
 		Common.print("Localtion is " + pos);
 	}
 
-	private static int methodByJuggling(int[] arr, int start, int end, int search) {
-		if (start < 0 || start >= arr.length || end >= arr.length || end < start || arr == null || arr.length == 0) {
+	private static int binarySearch(int[] arr, int start, int end, int search) {
+
+		if (start < 0 || start >= arr.length || end >= arr.length || end < start || arr.length == 0) {
 			return -1;
 		}
 
-		// 2,3,4,6,8,9
-		while (start < end) {
+		if (search > arr[end])
+			return arr.length;
 
-			int mid = (start + end) / 2;
+		if (search < arr[start])
+			return 0;
 
-			Common.println("MID " + mid);
+		// 1,3,9
+		// 0,1,2
+		// 2
+		int mid = 0;
+		while (start <= end) {
+			// 1
+			// 0 0
+			mid = (start + end) / 2;
+
 			if (arr[mid] == search) {
 				return mid;
 			} else if (arr[mid] > search) {
 				end = mid - 1;
 			} else {
 				start = mid + 1;
+				mid++;
 			}
 
 		}
-		return -1;
+		return mid;
 
 	}
 }
