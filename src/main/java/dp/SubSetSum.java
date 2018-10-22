@@ -6,7 +6,7 @@ public class SubSetSum {
 
 	public static void main(String args[]) {
 
-		int arr[] = { 3, 2, 71, -1 ,8};
+		int arr[] = { 3, 2, 71, -1, 8 };
 
 		int X = 6;
 
