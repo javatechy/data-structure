@@ -1,4 +1,4 @@
-package algorithms;
+package arrays;
 
 /**
  * https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
@@ -11,12 +11,31 @@ public class KadaneAlgorith {
 	// Driver program to test above functions
 	public static void main(String[] args) {
 
-		int ar[] = new int[] { -2, -3, 4, -1, -2, 1, 5, -3 };
+		int ar[] = new int[] { -2, -1 };
 
-		int sum = new KadaneAlgorith().kadane(ar);
+		int sum = new KadaneAlgorith().maxContigeousSum(ar);
 		System.out.println("Max sume: " + sum);
 	}
 
+	int maxContigeousSum(int arr[]) {
+		int max = Integer.MIN_VALUE;
+		int sum = 0;
+		for (int i : arr) {
+			sum += i;
+			max = Math.max(max, sum);
+			if (sum < 0) {
+				sum = 0;
+			}
+		}
+		return max;
+	}
+
+	/**
+	 * Cases TOCHECK : {-1} {-2,-1}
+	 * 
+	 * @param arr
+	 * @return
+	 */
 	int kadane(int arr[]) {
 		int max = 0;
 		int inter_max = 0;
@@ -34,11 +53,4 @@ public class KadaneAlgorith {
 
 	}
 
-	/* utility function to print an array */
-	static void printArray(int arr[], int size) {
-		int i;
-		System.out.println();
-		for (i = 0; i < size; i++)
-			System.out.print(arr[i] + " ");
-	}
 }

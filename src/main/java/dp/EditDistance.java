@@ -12,8 +12,8 @@ public class EditDistance {
 	private static final String SEPERATOR = " ";
 
 	public static void main(String args[]) {
-		String first = "DEEPAK";
-		String second = "PREETI";
+		String first = "MPCR";
+		String second = "MAGC";
 		int distance = editDistance(first, second);
 		Common.println(distance);
 

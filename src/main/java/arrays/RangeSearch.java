@@ -17,17 +17,17 @@ public class RangeSearch {
 		int search = 4;
 		int start = 2;
 		int end = 8;
-		int pos = methodByJuggling(arr, start, end, search);
+		int pos = binarySearch(arr, start, end, search);
 		Common.print("Localtion is " + pos);
 	}
 
-	private static int methodByJuggling(int[] arr, int start, int end, int search) {
-		if (start < 0 || start >= arr.length || end >= arr.length || end < start || arr == null || arr.length == 0) {
+	public static int binarySearch(int[] arr, int start, int end, int search) {
+		if (start < 0 || start >= arr.length || end >= arr.length || end < start || arr.length == 0) {
 			return -1;
 		}
 
 		// 2,3,4,6,8,9
-		while (start < end) {
+		while (start <= end) {
 
 			int mid = (start + end) / 2;
 

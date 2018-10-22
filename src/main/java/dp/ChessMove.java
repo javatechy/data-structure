@@ -14,7 +14,7 @@ public class ChessMove {
 		int source_row = 0;
 		int source_col = 0;
 		int dest_row = 7;
-		int dest_col = 6;
+		int dest_col = 7;
 
 		visted = new boolean[dest_row + 1][dest_col + 1];
 		int min = findKingMinPath(source_row, source_col, dest_row, dest_col);

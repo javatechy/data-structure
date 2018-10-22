@@ -37,6 +37,18 @@ public class Common {
 	public static void printArray(int[] arr) {
 		printArray(arr, " , ");
 	}
+	
+	public static void printArray(List[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+				System.out.print(arr[i] + " , ");
+		}
+		println();
+	}
+
+	public static void print(List<Integer> list) {
+		list.forEach(t -> System.out.print(t + " ,"));
+		println();
+	}
 
 	/**
 	 * Print 1D array
@@ -77,7 +89,7 @@ public class Common {
 			System.out.println();
 		}
 	}
-	
+
 	public static void print2DArray(boolean[][] arr, String seperator) {
 		println();
 		for (int i = 0; i < arr.length; i++) {
@@ -90,9 +102,12 @@ public class Common {
 	/**
 	 * Arrays to List
 	 */
-	public static <T> List<T> arrayToList(T[] array) {
-		return new ArrayList<>(Arrays.asList(array));
-
+	public static List<Integer> arrayToList(int[] second) {
+		List<Integer> intList = new ArrayList<Integer>();
+		for (int m : second) {
+			intList.add(m);
+		}
+		return intList;
 	}
 
 	public static int max(int... arr) {

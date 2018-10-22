@@ -11,10 +11,6 @@ import utils.Common;
  *
  */
 
-interface DeepChand {
-	void temp();
-}
-
 public class ArrayRotation {
 
 	// Driver program to test above functions
@@ -27,7 +23,7 @@ public class ArrayRotation {
 		// methodByO_dxN(arr, d);
 		rotate(arr, d);
 		// rotate(arr, d);
-		printArray(arr, arr.length);
+		Common.printArray(arr);
 	}
 
 	/**
@@ -77,7 +73,6 @@ public class ArrayRotation {
 				j = k;
 			}
 			arr[j] = temp;
-			printArray(arr, arr.length);
 		}
 	}
 
@@ -102,13 +97,5 @@ public class ArrayRotation {
 		for (i = 0; i < n - 1; i++)
 			arr[i] = arr[i + 1];
 		arr[i] = temp;
-	}
-
-	/* utility function to print an array */
-	static void printArray(int arr[], int size) {
-		int i;
-		System.out.println();
-		for (i = 0; i < size; i++)
-			System.out.print(arr[i] + " ");
 	}
 }
