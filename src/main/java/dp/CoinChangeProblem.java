@@ -1,16 +1,18 @@
 package dp;
 
+import java.util.Arrays;
+
 import utils.Common;
 
 public class CoinChangeProblem {
 
 	public static void main(String args[]) {
 
-		int arr[] = { 1, 2, 5, 10, 20, 50 };
+		int arr[] = { 7, 2, 3, 6 };
 
-		int X = 65;
+		int X = 13;
 
-		boolean res = noOfCoinChange(arr, arr.length, X);
+		int res = minCoinsDp(arr, arr.length, X);
 		Common.println(res);
 
 		// subsetSumDp(arr, arr.length, 5);
@@ -19,52 +21,64 @@ public class CoinChangeProblem {
 	/**
 	 * Pending
 	 */
-	private static boolean noOfCoinChange(int[] arr, int n, int sum) {
+	private static int minCoins(int[] coins, int n, int sum) {
 		// Base Cases
 		if (sum == 0)
-			return true;
-		if (n == 0 && sum != 0)
-			return false;
+			return 0;
 
-		if (arr[n - 1] > sum)
-			return noOfCoinChange(arr, n - 1, sum);
+		int count = Integer.MAX_VALUE;
+		for (int i = 0; i < n; i++) {
 
-		return noOfCoinChange(arr, n - 1, sum) || noOfCoinChange(arr, n - 1, sum - arr[n - 1]);
+			Common.println(" Coin: " + coins[i] + " : Sum: " + sum);
+
+			if (coins[i] <= sum) {
+				Common.println(" 			W o: Coin: " + coins[i] + " : Sum: " + sum);
+				int temp = 1 + Common.min(minCoins(coins, n, sum - coins[i]));
+				if (temp < count) {
+					Common.println(" 			Updating MIn: " + temp);
+					count = temp;
+				}
+			}
+		}
+
+		return count;
 	}
 
 	/**
 	 * Pending
 	 */
-	private static boolean subsetSumDp(int[] arr, int n, int sum) {
+	private static int minCoinsDp(int[] coins, int n, int sum) {
+		int result[] = new int[sum + 1];
+		int location[] = new int[sum + 1];
 
-		boolean[][] mat = new boolean[arr.length][sum + 1];
-		mat[0][0] = true;
-
-		for (int r = 0; r < mat.length; r++) {
-			mat[r][0] = true;
+		Arrays.fill(location, -1);
+		for (int i = 1; i <= sum; i++) {
+			result[i] = Integer.MAX_VALUE;
 		}
 
-		for (int c = 0; c < mat[0].length; c++) {
-			if (c == arr[0])
-				mat[0][c] = true;
-		}
-
-		for (int r = 1; r < mat.length; r++) {
-			for (int c = 1; c < mat[0].length; c++) {
-				if (mat[r - 1][c])
-					mat[r][c] = true;
-				else {
-					int col = c - arr[r];
-					if (col >= 0)
-						mat[r][c] = mat[r - 1][c - arr[r]];
+		for (int j = 0; j < n; j++) {
+			// Common.println("Running for " + coins[j]);
+			for (int i = 1; i <= sum; i++) {
+				if (i >= coins[j] && i - coins[j] >= 0) {
+					if (result[i - coins[j]] == Integer.MAX_VALUE) {
+						continue;
+					}
+					int temp = Math.min(result[i], 1 + result[i - coins[j]]);
+					result[i] = temp;
+					location[i] = j;
 				}
 			}
 		}
+		Common.printArray(result);
+		Common.printArray(location);
 
-		Common.print2DArray(mat, " ");
-
-		return mat[arr.length - 1][sum];
-
+		// to make 13
+		int temp = sum;
+		while (temp != 0) {
+			Common.println("SUM IS : " + coins[location[temp]]);
+			temp -= coins[location[temp]];
+		}
+		return result[sum];
 	}
 
 }
