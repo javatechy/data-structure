@@ -37,10 +37,22 @@ public class Common {
 	public static void printArray(int[] arr) {
 		printArray(arr, " , ");
 	}
-	
+
+	public static void printArray(boolean[] arr) {
+
+		for (int i = 0; i < arr.length; i++) {
+			if (i == arr.length - 1)
+				System.out.print(arr[i]);
+			else
+				System.out.print(arr[i] + " , ");
+		}
+		println();
+
+	}
+
 	public static void printArray(List[] arr) {
 		for (int i = 0; i < arr.length; i++) {
-				System.out.print(arr[i] + " , ");
+			System.out.print(arr[i] + " , ");
 		}
 		println();
 	}
