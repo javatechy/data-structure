@@ -5,7 +5,7 @@ import utils.Common;
 public class WaysToScore13 {
 
 	public static void main(String args[]) {
-		int n = 13;
+		int n = 3;
 		int combination = countWays(n);
 		Common.println(combination);
 		combination = countWaysDp(n);
@@ -19,11 +19,12 @@ public class WaysToScore13 {
 	}
 
 	private static int countWays(int n) {
+		Common.println("n = " + n);
 		if (n < 0)
 			return 0;
 		if (n == 0)
 			return 1;
-		return countWays(n - 5) + countWays(n - 3) + countWays(n - 10);
+		return countWays(n - 1) + countWays(n - 2) + countWays(n - 3);// + countWays(n - 4) + countWays(n - 5);
 	}
 
 	/***

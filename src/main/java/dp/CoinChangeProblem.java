@@ -8,14 +8,13 @@ public class CoinChangeProblem {
 
 	public static void main(String args[]) {
 
-		int arr[] = { 7, 2, 3, 6 };
+		int arr[] = { 1,2,3,4};
 
-		int X = 13;
+		int X = 5;
 
 		int res = minCoinsDp(arr, arr.length, X);
 		Common.println(res);
 
-		// subsetSumDp(arr, arr.length, 5);
 	}
 
 	/**
