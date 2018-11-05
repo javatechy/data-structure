@@ -3,6 +3,7 @@ package tree;
 import java.util.LinkedList;
 import java.util.List;
 
+import binary_tree.BinaryTree;
 import utils.Common;
 
 /**

@@ -1,10 +1,10 @@
 package tree;
 
 public class Node<T> {
-	T data;
-	Node<T> left;
-	Node<T> right;
-	int level;
+	public T data;
+	public Node<T> left;
+	public Node<T> right;
+	public int level;
 
 	public Node(T data) {
 		this.data = data;

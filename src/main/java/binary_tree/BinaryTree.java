@@ -1,17 +1,23 @@
-package tree;
+package binary_tree;
 
+import tree.NodeBT;
 import utils.Common;
 
 public class BinaryTree {
 	public NodeBT root;
 
 	public static void main(String[] args) {
-		BinaryTree bt = createBinaryTree(6,4,8,3,5,7,9);
-		inorder(bt.root);
+		NodeBT root = new NodeBT(10);
+		root.left = new NodeBT(8);
+		root.right = new NodeBT(2);
+		root.left.left = new NodeBT(3);
+		root.left.right = new NodeBT(5);
+		root.right.right = new NodeBT(2);
+		inorder(root);
 		Common.println();
-		preorder(bt.root);
+		preorder(root);
 		Common.println();
-		postorder(bt.root);
+		postorder(root);
 
 	}
 
@@ -23,7 +29,7 @@ public class BinaryTree {
 		Common.print(" " + root.data);
 		inorder(root.right);
 	}
-	
+
 	public static void postorder(NodeBT root) {
 		if (root == null) {
 			return;
@@ -32,7 +38,7 @@ public class BinaryTree {
 		postorder(root.right);
 		Common.print(" " + root.data);
 	}
-	
+
 	public static void preorder(NodeBT root) {
 		if (root == null) {
 			return;
@@ -49,13 +55,19 @@ public class BinaryTree {
 		return bt;
 	}
 
+	public static int height(NodeBT node) {
+		if (node == null)
+			return 0;
+		return 1 + Common.max(height(node.left), height(node.right));
+	}
+
 	private static NodeBT insert(NodeBT root, int data) {
 		if (root == null) {
 			root = new NodeBT(data);
 			return root;
 		}
 		if (data < root.data) {
-			//Common.println("Root left : " + root.data);
+			// Common.println("Root left : " + root.data);
 			root.left = insert(root.left, data);
 		} else {
 			root.right = insert(root.right, data);
