@@ -1,16 +1,19 @@
 package dp;
 
+import java.util.Arrays;
+
 import utils.Common;
 
 public class WaysToScore13 {
 
 	public static void main(String args[]) {
 		int n = 13;
-		int combination = countWays(n);
+		int combination = countWaysNonRepeating(n);
 		Common.println(combination);
 		combination = countWaysDp(n);
 		Common.println(combination);
 
+		Arrays.asList(2,3);
 		/**
 		 * combination = countWaysNonRepeating(n); Common.println(combination);
 		 * 

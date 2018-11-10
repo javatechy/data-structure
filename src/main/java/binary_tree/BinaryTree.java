@@ -1,5 +1,8 @@
 package binary_tree;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import tree.NodeBT;
 import utils.Common;
 
@@ -12,13 +15,45 @@ public class BinaryTree {
 		root.right = new NodeBT(2);
 		root.left.left = new NodeBT(3);
 		root.left.right = new NodeBT(5);
-		root.right.right = new NodeBT(2);
+		root.right.right = new NodeBT(12);
 		inorder(root);
 		Common.println();
 		preorder(root);
 		Common.println();
 		postorder(root);
 
+		int search = 1233;
+		Common.println("\nSearching :  " + searchNode(root, search));
+		LinkedList<Integer> path = new LinkedList<>();
+		searchPath(root, search, path);
+		Common.println("\nSearching pATH :  " + path);
+
+	}
+
+	public static boolean searchNode(NodeBT root, int element) {
+		if (root == null) {
+			return false;
+		}
+		Common.print(" " + root.data);
+		if (element == root.data) {
+			return true;
+		}
+		return searchNode(root.left, element) || searchNode(root.right, element);
+	}
+
+	public static boolean searchPath(NodeBT root, int element, List<Integer> path) {
+		if (root == null) {
+			return false;
+		}
+		if (element == root.data) {
+			path.add(root.data);
+			return true;
+		}
+		if (searchPath(root.left, element, path) || searchPath(root.right, element, path)) {
+			path.add(root.data);
+			return true;
+		}
+		return false;
 	}
 
 	public static void inorder(NodeBT root) {

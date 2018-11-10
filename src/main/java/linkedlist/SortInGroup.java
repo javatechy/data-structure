@@ -3,34 +3,30 @@ package linkedlist;
 import utils.Common;
 
 /**
- * @author deepak
+ * @author deepak L = 4 -> 8 -> 3 -> 9 -> 1 -> 3 -> 6 -> 7 -> 5 -> 2 -> null and
+ *         batch size is k = 4
  */
-public class LinkedList {
+public class SortInGroup {
 
 	private static NodeLL inilialzeLL() {
-		NodeLL head = new NodeLL(1);
-		head.next = new NodeLL(2);
+		NodeLL head = new NodeLL(4);
+		head.next = new NodeLL(8);
 		head.next.next = new NodeLL(3);
-		head.next.next.next = new NodeLL(4);
-		head.next.next.next.next = new NodeLL(5);
-		head.next.next.next.next.next = new NodeLL(6);
-		head.next.next.next.next.next.next = new NodeLL(7);
-		head.next.next.next.next.next.next.next = new NodeLL(8);
-		head.next.next.next.next.next.next.next.next = new NodeLL(9);
+		head.next.next.next = new NodeLL(9);
+		head.next.next.next.next = new NodeLL(1);
+		head.next.next.next.next.next = new NodeLL(3);
+		head.next.next.next.next.next.next = new NodeLL(6);
+		head.next.next.next.next.next.next.next = new NodeLL(7);
+		head.next.next.next.next.next.next.next.next = new NodeLL(5);
+		head.next.next.next.next.next.next.next.next.next = new NodeLL(2);
 		return head;
 	}
 
 	public static void main(String[] args) {
 		/* Start with the empty list. */
 		NodeLL head = inilialzeLL();
-		head = reverse(head);
-		Common.println("\nReversed");
 		printLinkedList(head);
-
-		head = inilialzeLL();
-
-		printLinkedList(head);
-		int k = 3;
+		int k = 4;
 		head = reverseInGrup(head, k);
 		Common.println("\nReversed in GROUP");
 		printLinkedList(head);
@@ -90,6 +86,8 @@ public class LinkedList {
 		// prev is now head of input list
 		return prev;
 	}
+
+	
 
 	static void printLinkedList(NodeLL head) {
 		System.out.println();

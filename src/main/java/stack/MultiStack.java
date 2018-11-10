@@ -5,7 +5,7 @@ package stack;
  * 
  * @author deepak
  */
-public class StackImpl {
+public class MultiStack {
 
 	public static void main(String[] args) {
 		

@@ -4,9 +4,10 @@ public class NodeLL {
 
 	public int data;
 
-	NodeLL(int data) {
+	public NodeLL(int data) {
 		this.data = data;
 	}
 
 	public NodeLL next;
+	public NodeLL prev;
 }
