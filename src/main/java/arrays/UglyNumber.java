@@ -1,7 +1,5 @@
 package arrays;
 
-import utils.Common;
-
 /**
  * 
  * A number which has factors only in {2,3,5}

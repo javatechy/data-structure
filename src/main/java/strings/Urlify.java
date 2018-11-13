@@ -54,5 +54,4 @@ public class Urlify {
 		return String.valueOf(newString);
 	}
 
-
 }

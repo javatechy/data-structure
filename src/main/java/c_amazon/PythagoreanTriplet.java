@@ -1,4 +1,4 @@
-package amazon;
+package c_amazon;
 
 public class PythagoreanTriplet {
 	

@@ -27,7 +27,8 @@ public class BinaryTree {
 		LinkedList<Integer> path = new LinkedList<>();
 		searchPath(root, search, path);
 		Common.println("\nSearching pATH :  " + path);
-
+		Common.println("\nLevel Order Traversal :  ");
+		levelOrderTraversal(root);
 	}
 
 	public static boolean searchNode(NodeBT root, int element) {
@@ -39,6 +40,29 @@ public class BinaryTree {
 			return true;
 		}
 		return searchNode(root.left, element) || searchNode(root.right, element);
+	}
+
+	/**
+	 * Use Queue or this
+	 * 
+	 */
+	public static void levelOrderTraversal(NodeBT root) {
+		int height = height(root);
+
+		for (int l = 1; l <= height; l++) {
+			printLevel(root, l);
+		}
+
+	}
+
+	private static void printLevel(NodeBT root, int level) {
+		if (level <= 1 && root != null) {
+			Common.print(root.data + " , ");
+		}
+		if (level > 1) {
+			printLevel(root.left, level - 1);
+			printLevel(root.right, level - 1);
+		}
 	}
 
 	public static boolean searchPath(NodeBT root, int element, List<Integer> path) {

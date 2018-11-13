@@ -57,6 +57,13 @@ public class Common {
 		println();
 	}
 
+	public static void printArray(char[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " , ");
+		}
+		println();
+	}
+
 	public static void print(List<Integer> list) {
 		list.forEach(t -> System.out.print(t + " ,"));
 		println();
@@ -143,5 +150,12 @@ public class Common {
 	public static void intialize2DMatrix(int[][] mat, int value) {
 		for (int i = 0; i < mat.length; i++)
 			Arrays.fill(mat[i], value);
+	}
+
+	public static int swap(int[] arr, int i, int j) {
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+		return temp;
 	}
 }

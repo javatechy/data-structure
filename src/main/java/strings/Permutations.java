@@ -12,9 +12,9 @@ public class Permutations {
 	static List<String> list = new ArrayList<>();
 
 	public static void main(String args[]) {
-		String str = "ABCDEFGHIJKLMN";
-		permute(str, 0, str.length() - 1);
-		//permute2(str);
+		String str = "ABCD";
+		// permute(str, 0, str.length() - 1);
+		permute2(str);
 	}
 
 	private static void permute2(String str) {
@@ -42,9 +42,9 @@ public class Permutations {
 		}
 
 		Common.println("SIZE  : " + queue1.size());
-		//while (!queue1.isEmpty()) {
-		//	Common.print(queue1.remove() + " , ");
-		//}
+		// while (!queue1.isEmpty()) {
+		// Common.print(queue1.remove() + " , ");
+		// }
 	}
 
 	private static String addToThisPostion(String ele, int j, String toAdd) {

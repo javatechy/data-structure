@@ -78,6 +78,7 @@ public class NoOfPathsIn2D {
 				memo[i][j] = memo[i - 1][j] + memo[i][j - 1];
 			}
 		}
+		Common.print2DArray(memo, " ");
 		return memo[r - 1][c - 1];
 
 	}

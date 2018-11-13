@@ -9,11 +9,19 @@ public class FirstUniqueString {
 		String ch = "geeksforgeeks";
 		Common.println();
 		char c = firstUniqueCharacter(ch);
+		Common.println(c);
 	}
 
 	private static char firstUniqueCharacter(String ch) {
+		int[] chars = new int[127];
+		ch.chars().forEach(t -> chars[t]++);
+		Common.printArray(chars);
 
-		return 0;
+		for (int i = 0; i < ch.length(); i++) {
+			if (chars[ch.charAt(i)] == 1)
+				return ch.charAt(i);
+		}
+		return '-';
 	}
 
 }
