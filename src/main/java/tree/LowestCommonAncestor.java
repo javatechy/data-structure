@@ -15,7 +15,7 @@ import utils.Common;
 public class LowestCommonAncestor {
 
 	public static void main(String args[]) {
-		BinaryTree bt = BinaryTree.createBinaryTree(8, 6, 10, 2, 7, 9, 11);
+		BinaryTree bt = BinarySearchTree.createBST(8, 6, 10, 2, 7, 9, 11);
 		NodeBT root = bt.root;
 		BinaryTree.inorder(root);
 		Common.println(lca(root, 2, 7));

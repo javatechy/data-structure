@@ -2,29 +2,42 @@ package binary_tree;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import tree.NodeBT;
 import utils.Common;
 
 public class BinaryTree {
+
 	public NodeBT root;
 
 	public static void main(String[] args) {
 		NodeBT root = initialize();
+
+		Common.println("\n------------------------------Traversals------------------------------------ ");
 		inorder(root);
 		Common.println();
 		preorder(root);
 		Common.println();
 		postorder(root);
 
+		Common.println("\nLevel Order Traversal :  ");
+		levelOrderTraversal(root);
+		Common.println("\nLevel By Level  Traversal :  ");
+		levelByLevelTraversal(root);
+
+		Common.println("\nBoundary  Traversal :  ");
+		boundaryTraversal(root);
+
+		Common.println("\n------------------------------searching and path------------------------------------ ");
+		// searching and path
 		int search = 1233;
 		Common.println("\nSearching :  " + searchNode(root, search));
 		LinkedList<Integer> path = new LinkedList<>();
 		searchPath(root, search, path);
 		Common.println("\nSearching pATH :  " + path);
-		Common.println("\nLevel Order Traversal :  ");
-		levelOrderTraversal(root);
 
+		// mirroring
 		root = initialize();
 		root.right.right.right = new NodeBT(19);
 		Common.println("\nMirror (Inorder):  ");
@@ -53,6 +66,68 @@ public class BinaryTree {
 		root.left = right;
 		mirror(root.left);
 		mirror(root.right);
+	}
+
+	/**
+	 * it has 3 parts:
+	 * <li>left size all</li>
+	 * <li>leaf nodes</li>
+	 * <li>right size</li>
+	 * 
+	 * @param root
+	 */
+	public static void boundaryTraversal(NodeBT root) {
+		Common.println(root.data);
+		printBoundryLeft(root.left);
+		printLeaves(root);
+		printBoundryRight(root.right);
+	}
+
+	private static void printLeaves(NodeBT root) {
+
+	}
+
+	private static void printBoundryLeft(NodeBT leftNode) {
+		if (leftNode == null) {
+			return;
+		}
+
+		Common.println(leftNode.data);
+		printBoundryLeft(leftNode.left);
+	}
+
+	private static void printBoundryRight(NodeBT rightNode) {
+		if (rightNode == null) {
+			return;
+		}
+		printBoundryRight(rightNode.right);
+		Common.println(rightNode.data);
+	}
+
+	public static void levelByLevelTraversal(NodeBT root) {
+
+		Queue<NodeBT> queue = new LinkedList<>();
+		queue.add(root);
+
+		while (true) {
+			int nodeCount = queue.size();
+			if (nodeCount == 0)
+				break;
+			Common.println("--------------");
+			while (nodeCount > 0) {
+
+				NodeBT node = queue.remove();
+
+				Common.print(":" + node.data);
+				if (node.left != null)
+					queue.add(node.left);
+
+				if (node.right != null)
+					queue.add(node.right);
+
+				nodeCount--;
+			}
+		}
 	}
 
 	public static boolean searchNode(NodeBT root, int element) {
@@ -131,30 +206,10 @@ public class BinaryTree {
 		preorder(root.right);
 	}
 
-	public static BinaryTree createBinaryTree(int... arr) {
-		BinaryTree bt = new BinaryTree();
-		for (int a : arr)
-			bt.root = insert(bt.root, a);
-		return bt;
-	}
-
 	public static int height(NodeBT node) {
 		if (node == null)
 			return 0;
 		return 1 + Common.max(height(node.left), height(node.right));
 	}
 
-	private static NodeBT insert(NodeBT root, int data) {
-		if (root == null) {
-			root = new NodeBT(data);
-			return root;
-		}
-		if (data < root.data) {
-			// Common.println("Root left : " + root.data);
-			root.left = insert(root.left, data);
-		} else {
-			root.right = insert(root.right, data);
-		}
-		return root;
-	}
 }

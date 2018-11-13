@@ -24,6 +24,53 @@ public class LinkedList {
 		head = reverseInGrup(head, k);
 		Common.println("\nReversed in GROUP");
 		printLinkedList(head);
+		Common.println("\nAdding List ");
+		head = addLists(ArrayToLinkedList.convert(9, 2), ArrayToLinkedList.convert(1, 2, 3));
+		printLinkedList(head);
+	}
+
+	/**
+	 * : O(m + n) where m and n are number of nodes in first and second lists
+	 * respectively.
+	 */
+	private static NodeLL addLists(NodeLL list1, NodeLL list2) {
+
+		NodeLL head = null;
+		int carry = 0;
+		NodeLL pos = head;
+
+		while (list1 != null || list2 != null) {
+			int sum = carry;
+			if (list1 != null) {
+				sum += list1.data;
+				list1 = list1.next;
+
+			}
+			if (list2 != null) {
+				sum += list2.data;
+				list2 = list2.next;
+			}
+			if (sum > 9) {
+				carry = 1;
+				sum = sum % 10;
+			} else {
+				carry = 0;
+			}
+
+			NodeLL dataNode = new NodeLL(sum);
+			if (pos == null) {
+				head = dataNode;
+				pos = head;
+			} else {
+				pos.next = dataNode;
+				pos = pos.next;
+			}
+
+		}
+
+		if (carry != 0)
+			pos.next = new NodeLL(1);
+		return head;
 
 	}
 

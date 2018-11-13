@@ -1,13 +1,14 @@
 package dp;
 
 import binary_tree.BinaryTree;
+import tree.BinarySearchTree;
 import tree.NodeBT;
 import utils.Common;
 
 public class BinaryTreeChildSum {
 
 	public static void main(String arr[]) {
-		BinaryTree bt = BinaryTree.createBinaryTree(6, 4, 8, 3, 5, 7, 9);
+		BinaryTree bt = BinarySearchTree.createBST(6, 4, 8, 3, 5, 7, 9);
 		BinaryTree.inorder(bt.root);
 		Common.println();
 		bt.root = childSum(bt.root);
