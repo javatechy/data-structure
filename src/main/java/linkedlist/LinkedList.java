@@ -7,28 +7,18 @@ import utils.Common;
  */
 public class LinkedList {
 
-	private static NodeLL inilialzeLL() {
-		NodeLL head = new NodeLL(1);
-		head.next = new NodeLL(2);
-		head.next.next = new NodeLL(3);
-		head.next.next.next = new NodeLL(4);
-		head.next.next.next.next = new NodeLL(5);
-		head.next.next.next.next.next = new NodeLL(6);
-		head.next.next.next.next.next.next = new NodeLL(7);
-		head.next.next.next.next.next.next.next = new NodeLL(8);
-		head.next.next.next.next.next.next.next.next = new NodeLL(9);
-		return head;
-	}
-
 	public static void main(String[] args) {
 		/* Start with the empty list. */
-		NodeLL head = inilialzeLL();
+		NodeLL head = ArrayToLinkedList.convert(1, 2, 3, 4, 5, 6, 7, 8, 9);
 		head = reverse(head);
 		Common.println("\nReversed");
 		printLinkedList(head);
 
-		head = inilialzeLL();
+		head = ArrayToLinkedList.convert(1);
+		printLinkedList(head);
+		Common.println("\nMiddle: " + middleElement(head).data);
 
+		head = ArrayToLinkedList.convert(1, 2, 3, 4, 5, 6, 7, 8, 9);
 		printLinkedList(head);
 		int k = 3;
 		head = reverseInGrup(head, k);
@@ -89,6 +79,27 @@ public class LinkedList {
 
 		// prev is now head of input list
 		return prev;
+	}
+
+	public static NodeLL middleElement(NodeLL head) {
+		if (head == null)
+			return head;
+
+		if (head.next == null)
+			return head;
+
+		NodeLL slow = head;
+
+		NodeLL fast = head.next;
+
+		while (fast != null && fast.next != null) {
+
+			slow = slow.next;
+
+			fast = fast.next.next;
+		}
+
+		return slow;
 	}
 
 	static void printLinkedList(NodeLL head) {

@@ -10,12 +10,7 @@ public class BinaryTree {
 	public NodeBT root;
 
 	public static void main(String[] args) {
-		NodeBT root = new NodeBT(10);
-		root.left = new NodeBT(8);
-		root.right = new NodeBT(2);
-		root.left.left = new NodeBT(3);
-		root.left.right = new NodeBT(5);
-		root.right.right = new NodeBT(12);
+		NodeBT root = initialize();
 		inorder(root);
 		Common.println();
 		preorder(root);
@@ -29,6 +24,35 @@ public class BinaryTree {
 		Common.println("\nSearching pATH :  " + path);
 		Common.println("\nLevel Order Traversal :  ");
 		levelOrderTraversal(root);
+
+		root = initialize();
+		root.right.right.right = new NodeBT(19);
+		Common.println("\nMirror (Inorder):  ");
+		mirror(root);
+		inorder(root);
+
+	}
+
+	private static NodeBT initialize() {
+		NodeBT root = new NodeBT(10);
+		root.left = new NodeBT(8);
+		root.right = new NodeBT(2);
+		root.left.left = new NodeBT(3);
+		root.left.right = new NodeBT(5);
+		root.right.right = new NodeBT(12);
+
+		return root;
+	}
+
+	public static void mirror(NodeBT root) {
+		if (root == null)
+			return;
+		NodeBT left = root.left;
+		NodeBT right = root.right;
+		root.right = left;
+		root.left = right;
+		mirror(root.left);
+		mirror(root.right);
 	}
 
 	public static boolean searchNode(NodeBT root, int element) {
