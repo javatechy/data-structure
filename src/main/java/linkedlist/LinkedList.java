@@ -19,6 +19,11 @@ public class LinkedList {
 		Common.println("\nMiddle: " + middleElement(head).data);
 
 		head = ArrayToLinkedList.convert(1, 2, 3, 4, 5, 6, 7, 8, 9);
+		Common.println("\n Delete Middle: ");
+		deleteMiddle(head);
+		printLinkedList(head);
+
+		head = ArrayToLinkedList.convert(1, 2, 3, 4, 5, 6, 7, 8, 9);
 		printLinkedList(head);
 		int k = 3;
 		head = reverseInGrup(head, k);
@@ -147,6 +152,29 @@ public class LinkedList {
 		}
 
 		return slow;
+	}
+
+	public static NodeLL deleteMiddle(NodeLL head) {
+		if (head == null)
+			return head;
+
+		if (head.next == null)
+			return head;
+
+		NodeLL slow = head;
+
+		NodeLL prev = slow;
+		NodeLL fast = head.next;
+
+		while (fast != null && fast.next != null) {
+			prev = slow;
+			slow = slow.next;
+
+			fast = fast.next.next;
+		}
+
+		prev.next = slow.next;
+		return prev;
 	}
 
 	static void printLinkedList(NodeLL head) {

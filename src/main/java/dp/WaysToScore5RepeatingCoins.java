@@ -18,8 +18,8 @@ public class WaysToScore5RepeatingCoins {
 	static Set<String> list = new HashSet<>();
 
 	public static void main(String args[]) {
-		int X = 5;
-		int arr[] = { 1, 2, 3, 4, 5 };
+		int X = 7;
+		int arr[] = { 1,  3 };
 		countWays(arr, X, 0, "");
 		Common.println(list.size());
 		list.stream().forEach(System.out::println);

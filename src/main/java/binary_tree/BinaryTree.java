@@ -37,6 +37,13 @@ public class BinaryTree {
 		searchPath(root, search, path);
 		Common.println("\nSearching pATH :  " + path);
 
+		Common.println("\nSum Tree  :  ");
+
+		root = initialize();
+		root.right.left = new NodeBT(15);
+		// Sum tree
+		sumTree(root);
+		inorder(root);
 		// mirroring
 		root = initialize();
 		root.right.right.right = new NodeBT(19);
@@ -73,18 +80,36 @@ public class BinaryTree {
 	 * <li>left size all</li>
 	 * <li>leaf nodes</li>
 	 * <li>right size</li>
-	 * 
-	 * @param root
 	 */
 	public static void boundaryTraversal(NodeBT root) {
-		Common.println(root.data);
+		Common.print(" " + root.data);
 		printBoundryLeft(root.left);
 		printLeaves(root);
 		printBoundryRight(root.right);
 	}
 
-	private static void printLeaves(NodeBT root) {
+	/**
+	 * The solution involves a simple traversal of the given tree. So the time
+	 * complexity is O(n) where n is the number of nodes in the given Binary Tree.
+	 */
+	public static int sumTree(NodeBT node) {
+		if (node == null) {
+			return 0;
+		}
+		int oldVal = node.data;
+		node.data = sumTree(node.left) + sumTree(node.right);
+		return node.data + oldVal;
+	}
 
+	private static void printLeaves(NodeBT node) {
+		if (node == null) {
+			return;
+		}
+		printLeaves(node.left);
+		// Print it if it is a leaf node
+		if (node.left == null && node.right == null)
+			System.out.print(" " + node.data);
+		printLeaves(node.right);
 	}
 
 	private static void printBoundryLeft(NodeBT leftNode) {
@@ -92,16 +117,27 @@ public class BinaryTree {
 			return;
 		}
 
-		Common.println(leftNode.data);
-		printBoundryLeft(leftNode.left);
+		if (leftNode.left != null) {
+			Common.print(" " + leftNode.data);
+			printBoundryLeft(leftNode.left);
+		} else if (leftNode.right != null) {
+			Common.print(" " + leftNode.data);
+			printBoundryLeft(leftNode.right);
+		}
 	}
 
 	private static void printBoundryRight(NodeBT rightNode) {
 		if (rightNode == null) {
 			return;
 		}
-		printBoundryRight(rightNode.right);
-		Common.println(rightNode.data);
+		if (rightNode.right != null) {
+			printBoundryRight(rightNode.right);
+			Common.print(" " + rightNode.data);
+		} else if (rightNode.left != null) {
+			printBoundryRight(rightNode.left);
+			Common.print(" " + rightNode.data);
+		}
+
 	}
 
 	public static void levelByLevelTraversal(NodeBT root) {
