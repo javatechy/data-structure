@@ -1,6 +1,5 @@
 package c_microsoft;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +32,9 @@ public class SubArraySum0 {
 			}
 			if (map.get(sum) != null) {
 				Common.println((map.get(sum) + 1) + " to " + i);
+
+	            // map[sum] stores starting index of all subarrays 
+				// Pending Part
 			}
 
 			map.put(sum, i);

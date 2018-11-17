@@ -36,6 +36,19 @@ public class ArrayToLinkedList {
 		}
 		return head;
 	}
+	
+	public static NodeLL circular(int... arr) {
+		NodeLL head = new NodeLL(arr[0]);
+
+		NodeLL pointer = head;
+		for (int i = 1; i < arr.length; i++) {
+			NodeLL newNode = new NodeLL(arr[i]);
+			pointer.next = newNode;
+			pointer = newNode;
+		}
+		pointer.next =head;
+		return head;
+	}
 
 	private static NodeLL removeDuplicates(NodeLL head) {
 		NodeLL pointer = head;

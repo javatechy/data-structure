@@ -8,7 +8,7 @@ public class WaysToScore13 {
 
 	public static void main(String args[]) {
 		int n = 13;
-		int combination = countWaysNonRepeating(n);
+		int combination = countWays(n);
 		Common.println(combination);
 		combination = countWaysDp(n);
 		Common.println(combination);

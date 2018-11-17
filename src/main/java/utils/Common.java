@@ -109,6 +109,10 @@ public class Common {
 		}
 	}
 
+	public static void print2DArray(int[][] arr) {
+		print2DArray(arr, " ");
+	}
+
 	public static void print2DArray(boolean[][] arr, String seperator) {
 		println();
 		for (int i = 0; i < arr.length; i++) {

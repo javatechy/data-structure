@@ -1,7 +1,5 @@
-package recursion;
+package linkedlist;
 
-import linkedlist.ArrayToLinkedList;
-import linkedlist.NodeLL;
 import utils.Common;
 
 public class LinkedListReversed {
@@ -11,8 +9,11 @@ public class LinkedListReversed {
 		print(head);
 		Common.println();
 		reverse(head);
+		
+		
 	}
 
+	
 	// Head recursion
 	private static void reverse(NodeLL head) {
 		if (head == null)
