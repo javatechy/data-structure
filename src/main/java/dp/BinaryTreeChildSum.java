@@ -8,11 +8,11 @@ import utils.Common;
 public class BinaryTreeChildSum {
 
 	public static void main(String arr[]) {
-		BinaryTree bt = BinarySearchTree.createBST(6, 4, 8, 3, 5, 7, 9);
-		BinaryTree.inorder(bt.root);
+		NodeBT root = BinarySearchTree.createBST(6, 4, 8, 3, 5, 7, 9);
+		BinaryTree.inorder(root);
 		Common.println();
-		bt.root = childSum(bt.root);
-		BinaryTree.inorder(bt.root);
+		root = childSum(root);
+		BinaryTree.inorder(root);
 	}
 
 	private static NodeBT childSum(NodeBT root) {

@@ -38,6 +38,7 @@ public class LongestIncresingSubseqence {
 			}
 			printArray(tempArray, SEPEARTOR);
 		}
+		// print sequenct
 		int max = tempArray[0];
 		print(arr[0] + ", ");
 		for (int i = 1; i < arr.length; i++) {

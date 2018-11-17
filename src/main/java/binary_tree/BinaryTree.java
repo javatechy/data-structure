@@ -46,11 +46,16 @@ public class BinaryTree {
 		inorder(root);
 		// mirroring
 		root = initialize();
-		root.right.right.right = new NodeBT(19);
+		// root.right.right.right = new NodeBT(19);
 		Common.println("\nMirror (Inorder):  ");
 		mirror(root);
 		inorder(root);
 
+		Common.println("\nIs Balanced:  " + isBalanced(root, new Height()));
+
+		Common.println("\nPrint K Distant nodes:  ");
+		printKDistant(root, 2);
+		// isBalanced(root);
 	}
 
 	private static NodeBT initialize() {
@@ -64,6 +69,20 @@ public class BinaryTree {
 		return root;
 	}
 
+	private static void printKDistant(NodeBT root, int k) {
+
+		if (root == null)
+			return;
+
+		if (k == 0) {
+			Common.print(root.data + " , ");
+			return;
+		}
+
+		printKDistant(root.left, k - 1);
+		printKDistant(root.right, k - 1);
+	}
+
 	public static void mirror(NodeBT root) {
 		if (root == null)
 			return;
@@ -73,6 +92,42 @@ public class BinaryTree {
 		root.left = right;
 		mirror(root.left);
 		mirror(root.right);
+	}
+
+	// O(n^2) Worst case occurs in case of skewed tree.
+	public static boolean isBalanced(NodeBT root) {
+		if (root == null)
+			return true;
+		int lh = height(root.left);
+		int rh = height(root.right);
+
+		if (Math.abs(lh - rh) <= 1 && isBalanced(root.left) && isBalanced(root.right)) {
+			return true;
+		}
+		return false;
+	}
+
+	// O(n) Worst case
+	public static boolean isBalanced(NodeBT root, Height height) {
+		if (root == null) {
+			height.h = 0;
+			return true;
+		}
+		Height lheight = new Height(), rheight = new Height();
+
+		boolean lbal = isBalanced(root.left, lheight);
+		boolean rBal = isBalanced(root.right, rheight);
+
+		int lh = lheight.h;
+		int rh = rheight.h;
+
+		// Height of current node is max of heights of left and right subtrees plus 1
+		height.h = Math.max(lh, rh) + 1;
+
+		if (Math.abs(lh - rh) >= 2) {
+			return false;
+		}
+		return lbal & rBal;
 	}
 
 	/**

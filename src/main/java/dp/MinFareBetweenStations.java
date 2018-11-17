@@ -15,13 +15,13 @@ public class MinFareBetweenStations {
 			/** 2 **/	{ -1, -1,  0,  80, 80, 23 }, 
 			/** 3 **/	{ -1, -1, -1,  0 , 88, 12 }, 
 			/** 4 **/	{ -1, -1, -1, -1 ,  0, 12 }, 
-			/** 5 **/	{ -1, -1, -1, -1 ,  0,  0 }, 
+			/** 5 **/	{ -1, -1, -1, -1 , -1,  0 }, 
 					};
 		
 		
 		int min =0;
 		
-		min=  minDistance(arr, 0, 5);
+		min=  minDistanceRecursive(arr, 0, 5);
 
 		
 		Common.println("Min distance is " + min);
@@ -38,6 +38,22 @@ public class MinFareBetweenStations {
 		
 		// @formatter:on
 
+	}
+
+	private static int minDistanceRecursive(int[][] arr, int s, int d) {
+		if (s == d)
+			return 0;
+		if (s == d - 1) {
+			return arr[s][d];
+		}
+		int min = arr[s][d];
+		for (int i = s + 1; i < d; i++) {
+
+			int dist = minDistance(arr, s, i) + minDistance(arr, i, d);
+			if (dist < min)
+				min = dist;
+		}
+		return min;
 	}
 
 	private static int minDistance(int[][] arr, int s, int d) {
@@ -70,7 +86,7 @@ public class MinFareBetweenStations {
 	}
 
 	/**
-	 * Minimum Distance
+	 * Minimum Distance using Dp
 	 */
 	private static int minDistanceDp(int[][] arr) {
 		int size = arr[0].length;

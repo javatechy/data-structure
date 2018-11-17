@@ -53,24 +53,20 @@ public class Diameter {
 	 * @return
 	 */
 	static int diameterOpt(NodeBT root, Height height) {
-		Height leftHeight = new Height();
-		Height rightHeight = new Height();
 
 		if (root == null) {
 			Common.println("Root is null");
 			height.h = 0;
 			return 0; /* diameter is also 0 */
 		}
-
-		Common.println("BEFORE REC: diameterOpt(" + root.data + ", " + height.h);
+		Height leftHeight = new Height();
+		Height rightHeight = new Height();
 
 		int ldiameter = diameterOpt(root.left, leftHeight);
 		int rdiameter = diameterOpt(root.right, rightHeight);
 
 		height.h = Math.max(leftHeight.h, rightHeight.h) + 1;
-		Common.println("AFTER REC : diameterOpt(" + root.data + ", " + height.h + ")");
-		Common.println("Compairing : Math.max(ldiameter, rdiameter) : " + Math.max(ldiameter, rdiameter) + " and "
-				+ (leftHeight.h + rightHeight.h + 1));
+
 		return Math.max(leftHeight.h + rightHeight.h + 1, Math.max(ldiameter, rdiameter));
 	}
 }

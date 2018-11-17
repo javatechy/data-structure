@@ -3,11 +3,11 @@ package tree;
 import binary_tree.BinaryTree;
 import utils.Common;
 
-public class BinarySearchTree {
+public class AVLTree {
 
 	public static void main(String args[]) {
 
-		NodeBT root = insert(null, 1);
+		NodeBT root = BinarySearchTree.createBST(30, 10, 20);
 		insert(root, 4);
 		insert(root, 6);
 		BinaryTree.preorder(root);
@@ -15,13 +15,6 @@ public class BinarySearchTree {
 		NodeBT search = search(root, 0);
 		Common.println("\nNode found " + search.data);
 
-	}
-
-	public static NodeBT createBST(int... arr) {
-		BinaryTree bt = new BinaryTree();
-		for (int a : arr)
-			bt.root = insert(bt.root, a);
-		return bt.root;
 	}
 
 	public static NodeBT insert(NodeBT root, int data) {
@@ -38,18 +31,9 @@ public class BinarySearchTree {
 		return root;
 	}
 
-	public static NodeBT search(NodeBT node, int data) {
-		if (node == null) {
-			return node;
-		}
-
-		if (node.data == data) {
-			return node;
-		}
-		if (data < node.data) {
-			return search(node.left, data);
-		}
-		return search(node.right, data);
+	public static NodeBT delete(NodeBT node, int data) {
+		return node;
+		
 	}
 
 }

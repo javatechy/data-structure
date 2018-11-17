@@ -6,6 +6,7 @@ public class BitOperation {
 
 	public static void main(String[] args) {
 
+		xorOperation();
 		// Integer to binary form
 		System.out.println(Integer.toBinaryString(12));
 
@@ -18,6 +19,14 @@ public class BitOperation {
 
 		andOperation();
 
+	}
+
+	private static void xorOperation() {
+		Common.println("XOR Operation (Multiplied by 2)");
+
+		Common.println(9 ^ ~8);
+		Common.println(7 ^ ~6);
+		
 	}
 
 	private static void andOperation() {

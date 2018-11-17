@@ -12,26 +12,26 @@ public class LinkedList {
 		NodeLL head = ArrayToLinkedList.convert(1, 2, 3, 4, 5, 6, 7, 8, 9);
 		head = reverse(head);
 		Common.println("\nReversed");
-		printLinkedList(head);
+		print(head);
 
 		head = ArrayToLinkedList.convert(1);
-		printLinkedList(head);
+		print(head);
 		Common.println("\nMiddle: " + middleElement(head).data);
 
 		head = ArrayToLinkedList.convert(1, 2, 3, 4, 5, 6, 7, 8, 9);
 		Common.println("\n Delete Middle: ");
 		deleteMiddle(head);
-		printLinkedList(head);
+		print(head);
 
 		head = ArrayToLinkedList.convert(1, 2, 3, 4, 5, 6, 7, 8, 9);
-		printLinkedList(head);
+		print(head);
 		int k = 3;
 		head = reverseInGrup(head, k);
 		Common.println("\nReversed in GROUP");
-		printLinkedList(head);
+		print(head);
 		Common.println("\nAdding List ");
 		head = addLists(ArrayToLinkedList.convert(9, 2), ArrayToLinkedList.convert(1, 2, 3));
-		printLinkedList(head);
+		print(head);
 	}
 
 	/**
@@ -177,7 +177,7 @@ public class LinkedList {
 		return prev;
 	}
 
-	static void printLinkedList(NodeLL head) {
+	public static void print(NodeLL head) {
 		System.out.println();
 		NodeLL n = head;
 		while (n != null) {

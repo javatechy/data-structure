@@ -56,7 +56,7 @@ public class CoinChangeProblem {
 		}
 
 		for (int j = 0; j < n; j++) {
-			// Common.println("Running for " + coins[j]);
+			 Common.println("Running for " + coins[j]);
 			for (int i = 1; i <= sum; i++) {
 				if (i >= coins[j] && i - coins[j] >= 0) {
 					if (result[i - coins[j]] == Integer.MAX_VALUE) {
