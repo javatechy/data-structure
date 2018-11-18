@@ -1,6 +1,5 @@
-package dp;
+package binary_tree;
 
-import binary_tree.BinaryTree;
 import tree.BinarySearchTree;
 import tree.NodeBT;
 import utils.Common;

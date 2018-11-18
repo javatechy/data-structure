@@ -16,8 +16,9 @@ public class StringInterLeaving {
 		if (first.length() + second.length() == third.length()) {
 			boolean boolena = interleaveDp(first, second, third);
 			Common.println(boolena);
+		} else {
+			Common.println(false);
 		}
-		Common.println(false);
 	}
 
 	/**

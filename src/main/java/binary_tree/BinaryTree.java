@@ -27,7 +27,7 @@ public class BinaryTree {
 		return root;
 	}
 
-	static void inorder(NodeBT root) {
+	public static void inorder(NodeBT root) {
 		if (root == null) {
 			return;
 		}
