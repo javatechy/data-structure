@@ -1,5 +1,7 @@
 package algorithms;
 
+import utils.Common;
+
 /**
  * https://www.geeksforgeeks.org/array-rotation/
  * 
@@ -10,9 +12,8 @@ public class KMPAlgorithm {
 
 	// Driver program to test above functions
 	public static void main(String[] args) {
-
-		String str = "ACABAACAADAABAABA";
-		String match = "ABABABAB";
+		String str = "AABAACAADAABAABA";
+		String match = "AABAAACAABAA";
 
 		int index = new KMPAlgorithm().knuthMorrisPratt(str, match);
 
@@ -27,7 +28,7 @@ public class KMPAlgorithm {
 			return 0;
 		}
 		int[] lcp = computeLongestCommonPrefixArray(pattern);
-		printArray(lcp, lcp.length);
+		Common.printArray(lcp);
 		int i = 0, j = 0;
 		while (i < text.length() && j != pattern.length()) {
 			if (text.charAt(i) == pattern.charAt(j)) {
@@ -63,11 +64,5 @@ public class KMPAlgorithm {
 		return lcp;
 	}
 
-	/* utility function to print an array */
-	static void printArray(int arr[], int size) {
-		int i;
-		System.out.println();
-		for (i = 0; i < size; i++)
-			System.out.print(arr[i] + " ");
-	}
+	
 }

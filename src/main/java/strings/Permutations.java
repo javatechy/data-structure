@@ -17,6 +17,7 @@ public class Permutations {
 		permute2(str);
 	}
 
+
 	private static void permute2(String str) {
 		if (str == null || str.length() == 0)
 			return;

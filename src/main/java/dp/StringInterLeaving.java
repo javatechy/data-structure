@@ -6,9 +6,9 @@ public class StringInterLeaving {
 
 	public static void main(String args[]) {
 
-		String first = "AB";
-		String second = "CD";
-		String third = "ACBD";
+		String first = "XYZ";
+		String second = "ABCD";
+		String third = "XABYCZD";
 
 		/*
 		 * first = "BCC"; second = "BBCA"; third = "BBCBCAC";

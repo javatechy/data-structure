@@ -1,6 +1,8 @@
 package graph;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 import utils.Common;
@@ -17,7 +19,9 @@ public class GraphSearch {
 	private static NodeG init() {
 		NodeG root = new NodeG(1, 3, 4, 5, 6);
 		NodeG node4 = root.getNode(root, 4);
+		node4.addChildren(9);
 		node4.addChildren(30, 6, 7);
+		NodeG node9 = root.getNode(root, 9);
 		return root;
 	}
 
@@ -58,4 +62,41 @@ public class GraphSearch {
 		}
 	}
 
+}
+
+class NodeG {
+
+	public int data;
+
+	public boolean isVisited;
+
+	public List<NodeG> children = new ArrayList<>();
+
+	public NodeG(int data) {
+		this.data = data;
+	}
+
+	public NodeG(int data, int... children) {
+		this.data = data;
+		this.addChildren(children);
+	}
+
+	public void addChildren(int... children) {
+		for (int child : children) {
+			this.children.add(new NodeG(child));
+		}
+	}
+
+	public NodeG getNode(NodeG node, int data) {
+		if (node.children == null) {
+			return null;
+		}
+		for (NodeG child : node.children) {
+			if (child.data == data)
+				return child;
+			else
+				return getNode(child, data);
+		}
+		return null;
+	}
 }

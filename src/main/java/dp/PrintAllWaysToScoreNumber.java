@@ -1,8 +1,8 @@
 package dp;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 import utils.Common;
 
@@ -13,16 +13,16 @@ import utils.Common;
  * @author deepak
  *
  */
-public class WaysToScore5RepeatingCoins {
+public class PrintAllWaysToScoreNumber {
 
-	static Set<String> list = new HashSet<>();
+	static Set<String> set = new TreeSet<>();
 
 	public static void main(String args[]) {
-		int X = 7;
-		int arr[] = { 1,  3 };
+		int X = 5;
+		int arr[] = { 2, 3, 5, 6 };
 		countWays(arr, X, 0, "");
-		Common.println(list.size());
-		list.stream().forEach(System.out::println);
+		Common.println(set.size());
+		set.stream().forEach(System.out::println);
 	}
 
 	private static int countWays(int arr[], int n, int pass, String str) {
@@ -37,8 +37,8 @@ public class WaysToScore5RepeatingCoins {
 		if (pass != 0)
 			str = str + (pass);
 		int sum = 0;
-		for (int i : arr) {
-			sum += countWays(arr, n - i, i, str);
+		for (int ele : arr) {
+			sum += countWays(arr, n - ele, ele, str);
 		}
 		return sum;
 	}
@@ -47,7 +47,7 @@ public class WaysToScore5RepeatingCoins {
 		char tempArray[] = inputString.toCharArray();
 		Arrays.sort(tempArray);
 		String string = new String(tempArray);
-		list.add(string);
+		set.add(string);
 	}
 
 }

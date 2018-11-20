@@ -3,6 +3,7 @@ package utils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class Common {
 
@@ -29,6 +30,12 @@ public class Common {
 
 	public static void println(Object x) {
 		System.out.println(x + "\n");
+	}
+
+	public static void println(Map map) {
+		map.forEach((k, v) -> {
+			println("k : " + k + " | v : " + v);
+		});
 	}
 
 	/**

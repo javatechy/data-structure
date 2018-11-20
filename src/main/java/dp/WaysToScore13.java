@@ -13,7 +13,7 @@ public class WaysToScore13 {
 		combination = countWaysDp(n);
 		Common.println(combination);
 
-		Arrays.asList(2,3);
+		Arrays.asList(2, 3);
 		/**
 		 * combination = countWaysNonRepeating(n); Common.println(combination);
 		 * 
@@ -22,11 +22,14 @@ public class WaysToScore13 {
 	}
 
 	private static int countWays(int n) {
+		Common.println("Called for : " + n);
 		if (n < 0)
 			return 0;
-		if (n == 0)
+		if (n == 0) {
+			Common.println("Found a match : ");
 			return 1;
-		return countWays(n - 5) + countWays(n - 3) + countWays(n - 10);
+		}
+		return countWays(n - 3) + countWays(n - 5) + countWays(n - 10);
 	}
 
 	private static int countWaysNonRepeating(int n) {
