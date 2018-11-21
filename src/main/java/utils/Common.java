@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 public class Common {
 
@@ -168,5 +169,12 @@ public class Common {
 		arr[i] = arr[j];
 		arr[j] = temp;
 		return temp;
+	}
+
+	public static void printStack(Stack<Integer> stack) {
+		// method 1:
+		String values = Arrays.toString(stack.toArray());
+		System.out.println(values);
+
 	}
 }

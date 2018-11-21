@@ -5,9 +5,9 @@ import java.util.Arrays;
 import utils.Common;
 
 /**
- * Check Babylonian theorem for exact sqrt
+ * Count Inversions in an array | Set 1 (Using Merge Sort)
  * 
- * https://www.geeksforgeeks.org/square-root-of-an-integer/
+ * https://www.geeksforgeeks.org/counting-inversions/
  *
  */
 public class ArrayInversions {
