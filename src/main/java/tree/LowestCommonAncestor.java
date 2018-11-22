@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import binary_tree.BinaryTree;
+import binary_tree.SearchBT;
 import utils.Common;
 
 /**
@@ -15,8 +16,7 @@ import utils.Common;
 public class LowestCommonAncestor {
 
 	public static void main(String args[]) {
-		BinaryTree bt = BinarySearchTree.createBST(8, 6, 10, 2, 7, 9, 11);
-		NodeBT root = bt.root;
+		NodeBT root = BinarySearchTree.createBST(8, 6, 10, 2, 7, 9, 11);
 		BinaryTree.inorder(root);
 		Common.println(lca(root, 2, 7));
 	}
@@ -25,8 +25,8 @@ public class LowestCommonAncestor {
 		List<Integer> firstList = new LinkedList<>();
 		List<Integer> secondList = new LinkedList<>();
 
-		boolean findPathSecond = BinaryTree.searchPath(root, second, secondList);
-		boolean findPathFirst = BinaryTree.searchPath(root, first, firstList);
+		boolean findPathSecond = SearchBT.searchPath(root, second, secondList);
+		boolean findPathFirst = SearchBT.searchPath(root, first, firstList);
 		if (!findPathFirst || !findPathSecond)
 			return -1;
 

@@ -98,7 +98,7 @@ public class SearchBT {
 		return searchNode(root.left, element) || searchNode(root.right, element);
 	}
 
-	private static boolean searchPath(NodeBT root, int element, List<Integer> path) {
+	public static boolean searchPath(NodeBT root, int element, List<Integer> path) {
 		if (root == null) {
 			return false;
 		}
