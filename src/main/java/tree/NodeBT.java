@@ -10,4 +10,10 @@ public class NodeBT {
 		left = null;
 		right = null;
 	}
+
+	@Override
+	public String toString() {
+		return "NodeBT [data=" + data + "]";
+	}
+	
 }

@@ -5,32 +5,26 @@ import static utils.Common.println;
 
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Queue;
 import java.util.TreeMap;
 
 import tree.Node;
 import utils.Common;
 
-public class BinaryTreeImpl {
+public class ViewBT {
 	Node<Integer> root;
 
 	/*
 	 * BinaryTree(int key) { root.data = key; }
 	 */
 
-	BinaryTreeImpl() {
+	ViewBT() {
 		root = null;
-	}
-
-	// Wrappers over above recursive functions
-	void printPostorder() {
-		printInorder(root);
 	}
 
 	public static void main(String[] args) {
 		println("Creating Binary tree");
-		BinaryTreeImpl tree = new BinaryTreeImpl();
+		ViewBT tree = new ViewBT();
 		tree.root = new Node<>(1);
 		tree.root.left = new Node<>(2);
 		tree.root.right = new Node<>(3);
@@ -38,15 +32,6 @@ public class BinaryTreeImpl {
 		tree.root.right.right = new Node<>(7);
 		tree.root.left.left = new Node<>(4);
 		tree.root.left.right = new Node<>(5);
-
-		println("---------------------\nIn order");
-		tree.printInorder(tree.root);
-
-		println("---------------------\nPre Order");
-		tree.printPreOrder(tree.root);
-
-		println("---------------------\nPost order");
-		tree.printPostOrder(tree.root);
 
 		println("---------------------\nBFS ");
 		tree.bfs(tree.root);
@@ -60,7 +45,10 @@ public class BinaryTreeImpl {
 
 		println("---------------------\nTOP View ");
 		tree.topView(tree.root);
-
+		Map<Integer, Node<Integer>> levelMap = new TreeMap<>();
+		tree.topViewRecursive(tree.root, 0, levelMap);
+		println("---------------------\nTOP View  recurisve");
+		levelMap.values().forEach(t -> System.out.print("|||  level: " + t.level + " | data : " + t.data));
 		println("---------------------\nBottom View ");
 		tree.bottomView(tree.root);
 
@@ -153,37 +141,21 @@ public class BinaryTreeImpl {
 				queue.add(node.right);
 			}
 		}
-		levelMap.values().forEach(t -> System.out.print(t.data));
+		levelMap.values().forEach(t -> System.out.print("|||  level: " + t.level + " | data : " + t.data));
 
 	}
 
-	private void printPreOrder(Node<Integer> root) {
-		if (Objects.isNull(root)) {
+	private void topViewRecursive(Node<Integer> root, int dist, Map<Integer, Node<Integer>> map) {
+
+		if (root == null)
 			return;
+
+		if (map.get(dist) == null) {
+			map.put(dist, root);
 		}
-		print(root.data);
-		printPreOrder(root.left);
-		printPreOrder(root.right);
 
-	}
-
-	private void printInorder(Node<Integer> node) {
-		if (Objects.isNull(node)) {
-			return;
-		}
-		printInorder(node.left);
-		print(node.data);
-		printInorder(node.right);
-
-	}
-
-	private void printPostOrder(Node<Integer> root) {
-		if (Objects.isNull(root)) {
-			return;
-		}
-		printPostOrder(root.left);
-		printPostOrder(root.right);
-		print(root.data);
+		topViewRecursive(root.left, dist - 1, map);
+		topViewRecursive(root.right, dist + 1, map);
 
 	}
 

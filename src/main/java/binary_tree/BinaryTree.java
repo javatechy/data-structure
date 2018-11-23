@@ -39,7 +39,7 @@ public class BinaryTree {
 	public static int height(NodeBT node) {
 		if (node == null)
 			return 0;
-		return 1 + Common.max(height(node.left), height(node.right));
+		return 1 + Math.max(height(node.left), height(node.right));
 	}
 
 	public static void postorder(NodeBT root) {
