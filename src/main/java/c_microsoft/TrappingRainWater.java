@@ -1,7 +1,5 @@
 package c_microsoft;
 
-import java.util.Arrays;
-
 import utils.Common;
 
 /**

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import utils.Common;
 
 public class Graph {
-	public int V;
+	public int V; // total Vertex
 	public LinkedList<Integer> adjancyList[];
 
 	public boolean[] visited;

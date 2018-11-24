@@ -74,10 +74,7 @@ public class BoxStackingProblem {
 		Common.printArray(result);
 
 		int index = result[result.length - 1];
-		while (index >= 0) {
-			Common.println(sortedBoxes[index]);
-			index = result[index];
-		}
+		
 		return 0;
 	}
 

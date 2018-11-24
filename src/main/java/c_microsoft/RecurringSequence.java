@@ -19,7 +19,7 @@ public class RecurringSequence {
 
 	public static void main(String[] args) {
 
-		Common.println(findRecurringSeq(8, 3));
+		// Common.println(findRecurringSeq(8, 3));
 		Common.println(findRecurringSeq(50, 22));
 
 	}
@@ -32,12 +32,15 @@ public class RecurringSequence {
 
 		int rem = numr % denr;
 		// 2
-
+		Common.println("Adding in map : key: " + rem + " value: " + res.length());
+		
 		while ((rem != 0) && (!mp.containsKey(rem))) {
-
+			Common.println("Adding in map : key: " + rem + " value: " + res.length());
 			mp.put(rem, res.length());
 
 			rem = rem * 10;
+
+			Common.println("REM : " + rem);
 
 			int res_Part = rem / denr;
 
