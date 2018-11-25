@@ -34,7 +34,7 @@
 - [x] Boundary Traversal of binary tree
 - [x] Breadth First Traversal or BFS for a Graph
 - [x] Check if binary representation of a number is palindrome
-- [ ]* Construct Tree from given Inorder and Preorder traversals
+- [ ] * Construct Tree from given Inorder and Preorder traversals
 - [x] Convert a given tree to its Sum Tree
 - [x] Converting Roman Numerals to Decimal lying between 1 to 3999
 - [x] Count Inversions in an array | Set 1 (Using Merge Sort)
@@ -67,14 +67,14 @@
 - [x] Merge two sorted linked lists
 - [x] Microsoft Interview experience | Set 100 (On Campus for Internship on IDC and IT)
 - [x] Minimum time required to rot all oranges
-- [x]* Mobile Numeric Keypad Problem
+- [x] * Mobile Numeric Keypad Problem
 - [x] Number of buildings facing the sun
 - [x] Pairwise swap elements of a given linked list
-- [ ]* Print a given matrix in spiral form
+- [ ] * Print a given matrix in spiral form
 - [x] Print a pattern without using any loop
-- [x]* Print all Jumping Numbers smaller than or equal to a given value
+- [x] * Print all Jumping Numbers smaller than or equal to a given value
  
-- [x]* Print all subarrays with 0 sum
+- [x] * Print all subarrays with 0 sum
 - [x] Print BST keys in the given range
 - [x] Print level order traversal line by line
 - [x] Print nodes at k distance from root
@@ -87,13 +87,13 @@
 - [x] Reverse Level Order Traversal
 - [x] Reverse words in a given string
 - [x] Root to leaf path sum equal to a given number
-- [x]* Search a Word in a 2D Grid of characters
+- [x] * Search a Word in a 2D Grid of characters
 - [x] Search an element in a sorted and rotated array
 - [x] Sort a linked list of 0s, 1s and 2s
 - [x] Sort an array of 0s, 1s and 2s
 - [x] Sorted insert for circular linked list
-- [x]* Stock Buy Sell to Maximize Profit
-- [x]* The Celebrity Problem
+- [x] * Stock Buy Sell to Maximize Profit
+- [x] * The Celebrity Problem
 - [x] Tree Isomorphism Problem
 - [x] Two elements whose sum is closest to zero
 - [x] Union and Intersection of two Linked Lists
@@ -107,17 +107,17 @@
 - [x] A program to check if a binary tree is BST or not
 - [x] Boggle | Set 2 (Using Trie)
 - [x] Check if a binary tree is subtree of another binary tree | Set 2
-- [x]* Dynamic Programming | Set 33 (Find if a string is interleaved of two other stri
+- [x] * Dynamic Programming | Set 33 (Find if a string is interleaved of two other stri
 - [x] Clone a linked list with next and random pointer | Set 2
-- [x]* Combinational Sum
+- [x] * Combinational Sum
 - [x] Connect nodes at same level
 - [x] Construct Binary Tree from given Parent Array representation
-- [x]* Program to convert a given number to words
+- [x] * Program to convert a given number to words
 - [x] Count number of binary strings without consecutive 1's
 - [x] Detect and Remove Loop in a Linked List
 - [x] Detect Cycle in a Directed Graph
-- [x]* Dynamic Programming | Set 22 (Box Stacking Problem)
-- [x]* Dynamic Programming | Set 8 (Matrix Chain Multiplication)
+- [x] * Dynamic Programming | Set 22 (Box Stacking Problem)
+- [x] * Dynamic Programming | Set 8 (Matrix Chain Multiplication)
 - [x] Factorial of a large number
 - [x] Find the first circular tour that visits all petrol pumps
 - [x] Find all distinct subsets of a given set
@@ -133,7 +133,7 @@
 - [x] Largest Sum Contiguous Subarray
 - [x] Length of longest palindrome list in a linked list using O(1) extra space
 - [x] Dynamic Programming | Set 29 (Longest Common Substring)
-- [ ]* Longest Even Length Substring such that Sum of First and Second Half is same
+- [ ] * Longest Even Length Substring such that Sum of First and Second Half is same
 - [x] Maximum size rectangle binary sub- [ ]matrix with all 1s
 - [x] Merge k sorted arrays | Set 1
 - [ ] Merge two BSTs with limited extra space
@@ -146,7 +146,7 @@
 - [x] Sort an array according to the order defined by another array
 - [x] Topological Sorting
 - [x] Trapping Rain Water
-- [x]* Validity of a given Tic- [ ]Tac- [ ]Toe board configuration
+- [x] * Validity of a given Tic- [ ]Tac- [ ]Toe board configuration
 - [x] Given an a
 - [x] Write a function to get the intersection point of two Linked Lists.
 - [x] Write an Efficient Method to Check if a Number is Multiple of 3
@@ -172,57 +172,57 @@
 
 ####  Tree:
 
-✓ Check if two given binary trees are identical or not | Iterative & Recursive
-✓ Calculate height of a binary tree | Iterative & Recursive
-✓ Delete given Binary Tree | Iterative & Recursive
-✓ Inorder Tree Traversal | Iterative & Recursive
-✓ Preorder Tree Traversal | Iterative & Recursive
-✓ Postorder Tree Traversal | Iterative & Recursive
-✓ Level Order Traversal of Binary Tree
-✓ Spiral Order Traversal of Binary Tree
-✓ Reverse Level Order Traversal of Binary Tree
-✓ Print all nodes of a given binary tree in specific order
-✓ Print Left View of a Binary Tree
-✓ Print Right View of a Binary Tree
-✓ Print Bottom View of Binary Tree
-✓ Print Top View of Binary Tree
-✓ Find next node in same level for given node in a binary tree
-✓ *Check if given binary tree is complete binary tree or not
-✓ Determine if given two nodes are cousins of each other
-✓ Print cousins of given node in a binary tree
-✓ In-place convert given binary tree to its sum tree
-✓ Check if given binary tree is a sum tree or not
-✓ Combinations of words formed by replacing given numbers with corresponding alphabets
-✓* Determine if given binary tree is a subtree of another binary tree or not
-✓* Find diameter of a binary tree
-✓ Check if given binary Tree has symmetric structure or not
-✓ Convert binary tree to its mirror
-✓ Check if binary tree can be converted to another by doing any no. of swaps of left & right child
-✓ Find Lowest Common Ancestor (LCA) of two nodes in a binary tree
-✓ Print all paths from root to leaf nodes in given binary tree
-✓ Find ancestors of given node in a Binary Tree
-✓ Find the distance between given pairs of nodes in a binary tree
-✓ Find Vertical Sum in a given Binary Tree
-✓ Print nodes in vertical order of a given Binary Tree (Vertical Traversal)
-✓ Find the diagonal sum of given binary tree
-✓ Print Diagonal Traversal of Binary Tree
-✓ Print corner nodes of every level in binary tree
-✓ In-place convert convert given Binary Tree to Doubly Linked List
+- [x] Check if two given binary trees are identical or not | Iterative & Recursive
+- [x] Calculate height of a binary tree | Iterative & Recursive
+- [x] Delete given Binary Tree | Iterative & Recursive
+- [x] Inorder Tree Traversal | Iterative & Recursive
+- [x] Preorder Tree Traversal | Iterative & Recursive
+- [x] Postorder Tree Traversal | Iterative & Recursive
+- [x] Level Order Traversal of Binary Tree
+- [x] Spiral Order Traver- [x] l of Binary Tree
+- [x] Reverse Level Order Traversal of Binary Tree
+- [x] Print all nodes of a given binary tree in specific order
+- [x] Print Left View of a Binary Tree
+- [x] Print Right View of a Binary Tree
+- [x] Print Bottom View of Binary Tree
+- [x] Print Top View of Binary Tree
+- [x] Find next node in same level for given node in a binary tree
+- [x]  *Check if given binary tree is complete binary tree or not
+- [x] Determine if given two nodes are cousins of each other
+- [x] Print cousins of given node in a binary tree
+- [x] In-place convert given binary tree to its sum tree
+- [x] Check if given binary tree is a sum tree or not
+- [x] Combinations of words formed by replacing given numbers with corresponding alphabets
+- [x]  * Determine if given binary tree is a subtree of another binary tree or not
+- [x]  * Find diameter of a binary tree
+- [x] Check if given binary Tree has symmetric structure or not
+- [x] Convert binary tree to its mirror
+- [x] Check if binary tree can be converted to another by doing any no. of swaps of left & right child
+- [x] Find Lowest Common Ancestor (LCA) of two nodes in a binary tree
+- [x] Print all paths from root to leaf nodes in given binary tree
+- [x] Find ancestors of given node in a Binary Tree
+- [x] Find the distance between given pairs of nodes in a binary tree
+- [x] Find Vertical Sum in a given Binary Tree
+- [x] Print nodes in vertical order of a given Binary Tree (Vertical Traversal)
+- [x] Find the diagonal sum of given binary tree
+- [x] Print Diagonal Traversal of Binary Tree
+- [x] Print corner nodes of every level in binary tree
+- [x] In-place convert convert given Binary Tree to Doubly Linked List
 - Sink nodes containing zero to the bottom of the binary tree
-✓ Convert given binary tree to full tree by removing half nodes
+- [x] Convert given binary tree to full tree by removing half nodes
 - Truncate given binary tree to remove nodes which lie on a path having sum less than K
-✓ Find maximum sum root-to-leaf path in a binary tree
-✓ Check if given binary tree is height balanced or not
-✓ Convert normal binary tree to Left-child right-sibling binary tree
-✓* Determine if given Binary Tree is a BST or not
-✓ Convert a Binary Tree to BST by maintaining its original structure
-✓* Invert given Binary Tree | Recursive and Iterative solution
-✓ Print leaf to root path for every leaf node in a binary tree
-✓ Find maximum width of given binary tree
-✓ Build Binary Tree from given Parent array
-✓* Find all nodes at given distance from leaf nodes in a binary tree
+- [x] Find maximum sum root-to-leaf path in a binary tree
+- [x] Check if given binary tree is height balanced or not
+- [x] Convert normal binary tree to Left-child right-sibling binary tree
+- [x] *  Determine if given Binary Tree is a BST or not
+- [x] Convert a Binary Tree to BST by maintaining its original structure
+- [x] *  Invert given Binary Tree | Recursive and Iterative solution
+- [x] Print leaf to root path for every leaf node in a binary tree
+- [x] Find maximum width of given binary tree
+- [x] Build Binary Tree from given Parent array
+- [x] *  Find all nodes at given distance from leaf nodes in a binary tree
 - Count all subtrees having same value of nodes in a binary tree
 - Find Maximum Difference Between a Node and its Descendants in a Binary Tree
-✓* Construct a Binary Tree from Ancestor Matrix
+- [x] *  Construct a Binary Tree from Ancestor Matrix
 - Calculate height of a binary tree with leaf nodes forming a circular doubly linked list
-✓ Ref: https://medium.com/@codingfreak/binary-tree-interview-questions-and-practice-problems-439df7e5ea1f
+- [x] Ref: https://medium.com/@codingfreak/binary-tree-interview-questions-and-practice-problems-439df7e5ea1f
