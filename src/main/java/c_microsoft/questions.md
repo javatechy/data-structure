@@ -1,6 +1,6 @@
-#Microsoft Questions:
+# Microsoft Questions:
 
-####EASY:
+### EASY:
 
 - [x] Binary representation of a given number
 - [x] Find max in struct array
@@ -102,7 +102,7 @@
 - [x] Write Code to Determine if Two Trees are Identical
 
 
-#### Medium Level(45):
+### Medium Level(45):
 
 - [x] A program to check if a binary tree is BST or not
 - [x] Boggle | Set 2 (Using Trie)
@@ -158,7 +158,7 @@
  
  
  
-#### Hard Level(9): 
+### Hard Level(9): 
  
 - [x] Backtracking | Set 7 (Sudoku)
 - [ ] Dynamic Programming | Set 37 (Boolean Parenthesization Problem)
@@ -170,7 +170,7 @@
 - [x] Median in a stream of integers (running integers)
 - [ ] Travelling Salesman Problem | Set 1 (Naive and Dynamic Programming)
 
-####  Tree:
+###  Tree:
 
 - [x] Check if two given binary trees are identical or not | Iterative & Recursive
 - [x] Calculate height of a binary tree | Iterative & Recursive
