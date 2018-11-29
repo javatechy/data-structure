@@ -1,7 +1,5 @@
 package queue;
 
-import java.util.ArrayList;
-
 public class MyQueue {
 	
 	private Integer[] arr;

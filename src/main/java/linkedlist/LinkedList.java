@@ -106,33 +106,6 @@ public class LinkedList {
 		return prev;
 	}
 
-	private static NodeLL sortInGroup(NodeLL head, int k) {
-		int temp = k;
-		NodeLL current = head;
-		NodeLL prev = null;
-		NodeLL next = null;
-
-		while (k != 0 && current != null) {
-			next = current.next;
-			current.next = prev;
-			prev = current;
-			current = next;
-			k--;
-		}
-
-		k = temp;
-
-		/*
-		 * next is now a pointer to (k+1)th node Recursively call for the list starting
-		 * from current. And make rest of the list as next of first node
-		 */
-		if (next != null)
-			head.next = reverseInGrup(next, k);
-
-		// prev is now head of input list
-		return prev;
-	}
-
 	public static NodeLL middleElement(NodeLL head) {
 		if (head == null)
 			return head;
