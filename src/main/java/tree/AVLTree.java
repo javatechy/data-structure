@@ -12,8 +12,8 @@ public class AVLTree {
 		insert(root, 6);
 		BinaryTree.preorder(root);
 
-		NodeBT search = search(root, 0);
-		Common.println("\nNode found " + search.data);
+//		NodeBT search = search(root, 0);
+	//	Common.println("\nNode found " + search(root, 0).data);
 
 	}
 

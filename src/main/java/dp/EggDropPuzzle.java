@@ -1,4 +1,4 @@
-package dynamic_prog;
+package dp;
 
 import static utils.Common.max;
 import static utils.Common.print2DArray;

@@ -11,8 +11,8 @@ public class CheckLeavesLevel {
 		int leftMostHeight = leftMostHeight(root);
 		Common.println(leftMostHeight);
 
-		Level level = new Level();
-		boolean isLevelEqual = checkLeaveLevel(root, leftMostHeight, level);
+		// Level level = new Level();
+		// boolean isLevelEqual = checkLeaveLevel(root, leftMostHeight, level);
 		// Sum tree
 	}
 
@@ -20,20 +20,6 @@ public class CheckLeavesLevel {
 		int level;
 	}
 
-	private static int checkLeaveLevel(NodeBT root, int leftMostHeight, Level level) {
-		if (root == null)
-			return 0;
-
-		if (root.left == null && root.right == null)
-			return 1;
-		
-		checkLeaveLevel(root.left, leftMostHeight, level.level + 1);
-		checkLeaveLevel(root.right, leftMostHeight, level.level + 1);
-		
-		return false;
-	}
-
-	
 	static int leftMostHeight(NodeBT root) {
 		if (root == null)
 			return 0;

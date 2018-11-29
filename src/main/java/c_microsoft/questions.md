@@ -214,15 +214,15 @@
 - [x] Find maximum sum root-to-leaf path in a binary tree
 - [x] Check if given binary tree is height balanced or not
 - [x] Convert normal binary tree to Left-child right-sibling binary tree
-- [x] *  Determine if given Binary Tree is a BST or not
+- [x] * Determine if given Binary Tree is a BST or not
 - [x] Convert a Binary Tree to BST by maintaining its original structure
-- [x] *  Invert given Binary Tree | Recursive and Iterative solution
+- [x] * Invert given Binary Tree | Recursive and Iterative solution
 - [x] Print leaf to root path for every leaf node in a binary tree
 - [x] Find maximum width of given binary tree
 - [x] Build Binary Tree from given Parent array
-- [x] *  Find all nodes at given distance from leaf nodes in a binary tree
+- [x] * Find all nodes at given distance from leaf nodes in a binary tree
 - Count all subtrees having same value of nodes in a binary tree
 - Find Maximum Difference Between a Node and its Descendants in a Binary Tree
-- [x] *  Construct a Binary Tree from Ancestor Matrix
+- [x] * Construct a Binary Tree from Ancestor Matrix
 - Calculate height of a binary tree with leaf nodes forming a circular doubly linked list
 - [x] Ref: https://medium.com/@codingfreak/binary-tree-interview-questions-and-practice-problems-439df7e5ea1f
