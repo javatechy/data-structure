@@ -15,10 +15,9 @@ public class DetectCyclicGraph {
 		graph.addEdge(0, 1);
 		graph.addEdge(0, 2);
 		graph.addEdge(1, 2);
-	// graph.addEdge(2, 0);
+		// graph.addEdge(2, 0);
 		// graph.addEdge(2, 3);
-		 graph.addEdge(3, 3);
-
+		graph.addEdge(3, 3);
 		graph.printGraph(graph);
 
 		if (findCycleByColors(graph)) {
@@ -52,7 +51,7 @@ public class DetectCyclicGraph {
 	private static boolean dfs(Set<Integer> whiteSet, Set<Integer> greySet, Set<Integer> blackSet,
 			Map<Integer, Integer> map, Graph graph, int vertex) {
 
-		Common.println("dfs called : for : " +vertex);
+		Common.println("dfs called : for : " + vertex);
 		moveVertx(whiteSet, greySet, vertex);
 		for (int child : graph.adjancyList[vertex]) {
 			if (blackSet.contains(child))

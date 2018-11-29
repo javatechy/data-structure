@@ -1,4 +1,4 @@
-package airtel;
+package binary_tree;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
