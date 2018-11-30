@@ -13,7 +13,7 @@ public class PrintPostOrderFromPreOrderInOrder {
 
 	private void postOrder(int[] preorder, int[] inorder, int post[], int low, int high, int preIndex,
 			AtomicInteger postIndex) {
-		if (low > high) {
+		if (low > high || preIndex < 0 || postIndex.get() < 0) {
 			return;
 		}
 		post[postIndex.getAndDecrement()] = preorder[preIndex];
@@ -28,8 +28,9 @@ public class PrintPostOrderFromPreOrderInOrder {
 	}
 
 	public static void main(String args[]) {
-		int preorder[] = { 37, 41, 43, 13, 5, 11, 29, 23, 2, 17, 47, 7, 3, 19, 31 };
-		int inorder[] = { 13, 5, 43, 11, 41, 2, 23, 17, 29, 47, 37, 3, 7, 31, 19 };
+		int preorder[] = { 1, 2, 4, 5, 3, 6 };
+		int inorder[] = { 4, 2, 5, 1, 3, 6 };
+
 		PrintPostOrderFromPreOrderInOrder ppp = new PrintPostOrderFromPreOrderInOrder();
 		int postorder[] = ppp.postOrder(preorder, inorder);
 		for (int i : postorder) {
